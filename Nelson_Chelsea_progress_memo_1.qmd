@@ -26,6 +26,19 @@ editor:
 Repo](https://github.com/stat301-1-2023-fall/final-project-1-chelseanelson)
 :::
 
+## Packages 
+
+```{r}
+#| label: loading_packages 
+#| code-fold: false
+
+library(tidyverse)
+library(readxl)
+
+```
+
+
+
 ## Data source
 
 I will be using the Economic Policy Institute's data on family budget,
@@ -66,7 +79,18 @@ expense levels in the different counties and states.
 
 ## Data quality & complexity check
 
-Blah blah blah
+```{r}
+#| label: loading_datasets
+
+# larger version of dataset
+fbc_data <- read_excel(path = "data/raw/fbc_data_2022.xlsx")
+# have to fix this 
+
+# smaller version of dataset 
+cost_of_living_us <- read_csv("data/raw/cost_of_living_us.csv") 
+
+```
+
 
 ## Potential data issues
 
