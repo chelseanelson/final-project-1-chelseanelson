@@ -5,39 +5,64 @@ subtitle: |
   | Data Science 1 with R (STAT 301-1)
 author: "Chelsea Nelson"
 date: today
-
 format:
   html:
+    
     toc: true
     embed-resources: true
-    
 execute:
   echo: false
   warning: false
-
 from: markdown+emoji 
+editor: 
+  markdown: 
+    wrap: 72
 ---
-::: {.callout-tip icon=false}
 
+::: {.callout-tip icon="false"}
 ## Github Repo Link
 
-[Final Project 1 Repo Link](https://github.com/stat301-1-2023-fall/final-project-1-chelseanelson)
-
-:::
-
-::: {.callout-warning}
-GitHub (free account) cannot store large files. If you try to commit and push a large dataset you will have an ERROR! Any file over 100 MB (100,000 KB) needs to be added to the `.gitignore` file BEFORE committing.
-
-**We may need to do that for files in your final project!**
+[Final Project 1
+Repo](https://github.com/stat301-1-2023-fall/final-project-1-chelseanelson)
 :::
 
 ## Data source
 
-Blah blah blah^[where blah blah came from, an example of footnote]
+I will be using the Economic Policy Institute's data on family budget,
+which also then corresponding to telling us about the cost of living in
+each county in America. This dataset provides insights into the average
+economical weights of different aspects of life for each county in
+America, whiles dividing these averages further by also looking at the
+different family types as well. I have provided an additional copy of
+the same dataset, with a little less columns and information from
+Kaggle. This in case the analysis that I wish to conduct starts to not
+follow the overall larger EPI dataset, thus turning towards the smaller
+one from Kaggle where I can focus in more on each variable. I
+additionally wanted to join this dataset, with another which provided
+information on the minimum wage and average wage in each state, but I
+was unable to find a suitable dataset, thus I will be adding these
+variables on myself during the first stages of my EDA. [^1]
+
+[^1]: These datasets were sourced from [EPI Family Budget
+    Map](https://www.epi.org/resources/budget/budget-map/) & [Kaggle US
+    Cost of Living
+    Dataset](https://www.kaggle.com/datasets/asaniczka/us-cost-of-living-dataset-3171-counties/data).
 
 ## Why this data
 
-Blah blah blah^[another footnote]
+The reason I choose this dataset is because I thought it would be
+interesting to see how the cost of living differs not only on the level
+of state vs state, but looking further into the issue by seeing how cost
+of living differs by family size and county location. Additionally, I
+think this would be an opportunity to learn how the incomes levels and
+expenses in each county and state differ from each other, while also
+starting to understand why these differences are present. I further
+think that by looking additionally at minimum wage in each state, it
+will bring attention to a lot of the inequity present in the states.
+Thinking on this now, I could also create a variable which states what
+the majority race or ethnicity in each county is as well, I think this
+would be an interesting statistical insight to find and correlate to
+expense levels in the different counties and states.
 
 ## Data quality & complexity check
 
