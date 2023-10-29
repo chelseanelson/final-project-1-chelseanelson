@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Chelsea Nelson">
-<meta name="dcterms.date" content="2023-10-28">
+<meta name="dcterms.date" content="2023-10-29">
 
 <title>Progress Memo 1</title>
 <style>
@@ -3023,7 +3023,7 @@ Data Science 1 with R (STAT 301-1)</p><p></p>
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">October 28, 2023</p>
+      <p class="date">October 29, 2023</p>
     </div>
   </div>
   
@@ -3051,7 +3051,7 @@ Github Repo Link
 </section>
 <section id="data-source" class="level2">
 <h2 class="anchored" data-anchor-id="data-source">Data source</h2>
-<p>I will be using the Economic Policy Institute’s data on family budget, which also then corresponding to telling us about the cost of living in each county in America. This dataset provides insights into the average economical weights of different aspects of life for each county in America, whiles dividing these averages further by also looking at the different family types as well. I have provided an additional copy of the same dataset, with a little less columns and information from Kaggle. This in case the analysis that I wish to conduct starts to not follow the overall larger EPI dataset, thus turning towards the smaller one from Kaggle where I can focus in more on each variable. I additionally wanted to join this dataset, with another which provided information on the minimum wage and average wage in each state, but I was unable to find a suitable dataset, thus I will be adding these variables on myself during the first stages of my EDA. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>I will be using the Economic Policy Institute’s data on family budget, which also then corresponding to telling us about the cost of living in each county in America. This dataset provides insights into the average economical weights of different aspects of life for each county in America, whiles dividing these averages further by also looking at the different family types as well. I have provided an additional copy of the same dataset, with a little less columns and information from Kaggle. This in case that the analysis that in which I wish to conduct starts to not follow the overall larger EPI dataset. Thus turning towards the smaller one from Kaggle where I can focus in more on each variable, looking only at the annual costs and not both monthly and annual as in the larger EPI provided dataset. I additionally wanted to join this dataset, with others which provided information on the minimum wage in each state and perhaps the racial majorities of each county, but I was unable to find suitable datasets, thus I will be adding these variables on myself during the first stages of my EDA. <a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
 </section>
 <section id="why-this-data" class="level2">
 <h2 class="anchored" data-anchor-id="why-this-data">Why this data</h2>
@@ -3059,14 +3059,854 @@ Github Repo Link
 </section>
 <section id="data-quality-complexity-check" class="level2">
 <h2 class="anchored" data-anchor-id="data-quality-complexity-check">Data quality &amp; complexity check</h2>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 31,430 × 27
+   case_id state_abv metro areaname   county family housing_monthly food_monthly
+     &lt;dbl&gt; &lt;chr&gt;     &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;  &lt;chr&gt;            &lt;dbl&gt;        &lt;dbl&gt;
+ 1       1 AL            1 Montgomer… Autau… 1p0c              709.         288.
+ 2       1 AL            1 Montgomer… Autau… 1p1c             1006.         424.
+ 3       1 AL            1 Montgomer… Autau… 1p2c             1006.         622.
+ 4       1 AL            1 Montgomer… Autau… 1p3c             1271.         829.
+ 5       1 AL            1 Montgomer… Autau… 1p4c             1271.        1015.
+ 6       1 AL            1 Montgomer… Autau… 2p0c              848.         528.
+ 7       1 AL            1 Montgomer… Autau… 2p1c             1006.         657.
+ 8       1 AL            1 Montgomer… Autau… 2p2c             1006.         832.
+ 9       1 AL            1 Montgomer… Autau… 2p3c             1271.        1016.
+10       1 AL            1 Montgomer… Autau… 2p4c             1271.        1243.
+# ℹ 31,420 more rows
+# ℹ 19 more variables: transportation_monthly &lt;dbl&gt;, healthcare_monthly &lt;dbl&gt;,
+#   other_necessities_monthly &lt;dbl&gt;, childcare_monthly &lt;dbl&gt;,
+#   taxes_monthly &lt;dbl&gt;, total_monthly &lt;dbl&gt;, housing_annual &lt;dbl&gt;,
+#   food_annual &lt;dbl&gt;, transportation_annual &lt;dbl&gt;, healthcare_annual &lt;dbl&gt;,
+#   other_necessities_annual &lt;dbl&gt;, childcare_annual &lt;dbl&gt;, taxes_annual &lt;dbl&gt;,
+#   total_annual &lt;dbl&gt;, median_family_income &lt;dbl&gt;, num_counties_in_st &lt;dbl&gt;, …</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 27 × 2
+   `Column Variable`        Description                                         
+   &lt;chr&gt;                    &lt;chr&gt;                                               
+ 1 case_id                  Used to uniquely identify observations              
+ 2 State abv.               Two letter state abbreviation                       
+ 3 Metro                    Indicates whether or not a county is in a metro area
+ 4 Areaname                 Name of metro area county is in (if applicable)     
+ 5 County                   County name                                         
+ 6 Family                   Family type                                         
+ 7 Housing - Monthly        Average  monthly cost of housing                    
+ 8 Food - Monthly           Average monthly cost of food                        
+ 9 Transportation - Monthly Average monthly of transportation                   
+10 Healthcare - Monthly     Average monthly cost of healthcare                  
+# ℹ 17 more rows</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 31,430 × 15
+   case_id state isMetro areaname        county family_member_count housing_cost
+     &lt;dbl&gt; &lt;chr&gt; &lt;lgl&gt;   &lt;chr&gt;           &lt;chr&gt;  &lt;chr&gt;                      &lt;dbl&gt;
+ 1       1 AL    TRUE    Montgomery, AL… Autau… 1p0c                       8506.
+ 2       1 AL    TRUE    Montgomery, AL… Autau… 1p1c                      12068.
+ 3       1 AL    TRUE    Montgomery, AL… Autau… 1p2c                      12068.
+ 4       1 AL    TRUE    Montgomery, AL… Autau… 1p3c                      15257.
+ 5       1 AL    TRUE    Montgomery, AL… Autau… 1p4c                      15257.
+ 6       1 AL    TRUE    Montgomery, AL… Autau… 2p0c                      10180.
+ 7       1 AL    TRUE    Montgomery, AL… Autau… 2p1c                      12068.
+ 8       1 AL    TRUE    Montgomery, AL… Autau… 2p2c                      12068.
+ 9       1 AL    TRUE    Montgomery, AL… Autau… 2p3c                      15257.
+10       1 AL    TRUE    Montgomery, AL… Autau… 2p4c                      15257.
+# ℹ 31,420 more rows
+# ℹ 8 more variables: food_cost &lt;dbl&gt;, transportation_cost &lt;dbl&gt;,
+#   healthcare_cost &lt;dbl&gt;, other_necessities_cost &lt;dbl&gt;, childcare_cost &lt;dbl&gt;,
+#   taxes &lt;dbl&gt;, total_cost &lt;dbl&gt;, median_family_income &lt;dbl&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">Piped data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">31430</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">27</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">23</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">state_abv</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">areaname</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">183</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2561</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">county</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1877</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">family</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 21%">
+<col style="width: 8%">
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">case_id</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1589.31</td>
+<td style="text-align: right;">917.22</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">792.00</td>
+<td style="text-align: right;">1593.00</td>
+<td style="text-align: right;">2386.00</td>
+<td style="text-align: right;">3171.00</td>
+<td style="text-align: left;">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">metro</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: right;">0.48</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: left;">▇▁▁▁▅</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">housing_monthly</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">922.81</td>
+<td style="text-align: right;">347.13</td>
+<td style="text-align: right;">350.78</td>
+<td style="text-align: right;">715.00</td>
+<td style="text-align: right;">868.00</td>
+<td style="text-align: right;">1037.00</td>
+<td style="text-align: right;">5144.63</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">food_monthly</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">690.63</td>
+<td style="text-align: right;">272.60</td>
+<td style="text-align: right;">185.02</td>
+<td style="text-align: right;">483.45</td>
+<td style="text-align: right;">677.43</td>
+<td style="text-align: right;">891.97</td>
+<td style="text-align: right;">2598.22</td>
+<td style="text-align: left;">▇▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">transportation_monthly</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1132.82</td>
+<td style="text-align: right;">136.70</td>
+<td style="text-align: right;">184.71</td>
+<td style="text-align: right;">1044.60</td>
+<td style="text-align: right;">1141.51</td>
+<td style="text-align: right;">1230.48</td>
+<td style="text-align: right;">1651.37</td>
+<td style="text-align: left;">▁▁▃▇▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">healthcare_monthly</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1116.17</td>
+<td style="text-align: right;">433.71</td>
+<td style="text-align: right;">289.70</td>
+<td style="text-align: right;">805.62</td>
+<td style="text-align: right;">1090.22</td>
+<td style="text-align: right;">1388.15</td>
+<td style="text-align: right;">3104.36</td>
+<td style="text-align: left;">▅▇▃▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">other_necessities_monthly</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">584.61</td>
+<td style="text-align: right;">199.78</td>
+<td style="text-align: right;">217.64</td>
+<td style="text-align: right;">440.53</td>
+<td style="text-align: right;">561.09</td>
+<td style="text-align: right;">701.09</td>
+<td style="text-align: right;">2402.45</td>
+<td style="text-align: left;">▇▅▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">childcare_monthly</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">823.30</td>
+<td style="text-align: right;">564.85</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">445.14</td>
+<td style="text-align: right;">847.20</td>
+<td style="text-align: right;">1189.70</td>
+<td style="text-align: right;">4069.26</td>
+<td style="text-align: left;">▇▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">taxes_monthly</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">638.14</td>
+<td style="text-align: right;">278.32</td>
+<td style="text-align: right;">85.65</td>
+<td style="text-align: right;">466.50</td>
+<td style="text-align: right;">574.87</td>
+<td style="text-align: right;">732.52</td>
+<td style="text-align: right;">3979.45</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">total_monthly</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5908.47</td>
+<td style="text-align: right;">1820.55</td>
+<td style="text-align: right;">2507.31</td>
+<td style="text-align: right;">4481.33</td>
+<td style="text-align: right;">5914.81</td>
+<td style="text-align: right;">7114.28</td>
+<td style="text-align: right;">18643.13</td>
+<td style="text-align: left;">▇▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">housing_annual</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11073.67</td>
+<td style="text-align: right;">4165.61</td>
+<td style="text-align: right;">4209.31</td>
+<td style="text-align: right;">8580.00</td>
+<td style="text-align: right;">10416.00</td>
+<td style="text-align: right;">12444.00</td>
+<td style="text-align: right;">61735.59</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">food_annual</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8287.50</td>
+<td style="text-align: right;">3271.14</td>
+<td style="text-align: right;">2220.28</td>
+<td style="text-align: right;">5801.42</td>
+<td style="text-align: right;">8129.16</td>
+<td style="text-align: right;">10703.62</td>
+<td style="text-align: right;">31178.62</td>
+<td style="text-align: left;">▇▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">transportation_annual</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13593.86</td>
+<td style="text-align: right;">1640.46</td>
+<td style="text-align: right;">2216.46</td>
+<td style="text-align: right;">12535.16</td>
+<td style="text-align: right;">13698.16</td>
+<td style="text-align: right;">14765.76</td>
+<td style="text-align: right;">19816.48</td>
+<td style="text-align: left;">▁▁▃▇▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">healthcare_annual</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13394.03</td>
+<td style="text-align: right;">5204.55</td>
+<td style="text-align: right;">3476.38</td>
+<td style="text-align: right;">9667.44</td>
+<td style="text-align: right;">13082.70</td>
+<td style="text-align: right;">16657.82</td>
+<td style="text-align: right;">37252.27</td>
+<td style="text-align: left;">▅▇▃▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">other_necessities_annual</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7015.32</td>
+<td style="text-align: right;">2397.42</td>
+<td style="text-align: right;">2611.64</td>
+<td style="text-align: right;">5286.35</td>
+<td style="text-align: right;">6733.06</td>
+<td style="text-align: right;">8413.09</td>
+<td style="text-align: right;">28829.44</td>
+<td style="text-align: left;">▇▅▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">childcare_annual</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9879.58</td>
+<td style="text-align: right;">6778.22</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">5341.62</td>
+<td style="text-align: right;">10166.34</td>
+<td style="text-align: right;">14276.38</td>
+<td style="text-align: right;">48831.09</td>
+<td style="text-align: left;">▇▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">taxes_annual</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7657.71</td>
+<td style="text-align: right;">3339.80</td>
+<td style="text-align: right;">1027.80</td>
+<td style="text-align: right;">5597.97</td>
+<td style="text-align: right;">6898.47</td>
+<td style="text-align: right;">8790.21</td>
+<td style="text-align: right;">47753.39</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">total_annual</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">70901.68</td>
+<td style="text-align: right;">21846.55</td>
+<td style="text-align: right;">30087.66</td>
+<td style="text-align: right;">53776.02</td>
+<td style="text-align: right;">70977.68</td>
+<td style="text-align: right;">85371.34</td>
+<td style="text-align: right;">223717.55</td>
+<td style="text-align: left;">▇▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">median_family_income</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">68316.00</td>
+<td style="text-align: right;">16886.97</td>
+<td style="text-align: right;">25529.98</td>
+<td style="text-align: right;">57223.99</td>
+<td style="text-align: right;">65955.61</td>
+<td style="text-align: right;">76136.07</td>
+<td style="text-align: right;">177662.47</td>
+<td style="text-align: left;">▂▇▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">num_counties_in_st</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">96.51</td>
+<td style="text-align: right;">56.88</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">64.00</td>
+<td style="text-align: right;">87.00</td>
+<td style="text-align: right;">105.00</td>
+<td style="text-align: right;">254.00</td>
+<td style="text-align: left;">▂▇▂▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">st_cost_rank</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">48.77</td>
+<td style="text-align: right;">43.05</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">18.00</td>
+<td style="text-align: right;">39.00</td>
+<td style="text-align: right;">66.00</td>
+<td style="text-align: right;">254.00</td>
+<td style="text-align: left;">▇▃▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">st_med_aff_rank</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">48.74</td>
+<td style="text-align: right;">43.08</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">18.00</td>
+<td style="text-align: right;">39.00</td>
+<td style="text-align: right;">66.00</td>
+<td style="text-align: right;">254.00</td>
+<td style="text-align: left;">▇▃▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">st_income_rank</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">48.77</td>
+<td style="text-align: right;">43.05</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">18.00</td>
+<td style="text-align: right;">39.00</td>
+<td style="text-align: right;">66.00</td>
+<td style="text-align: right;">254.00</td>
+<td style="text-align: left;">▇▃▁▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 27 × 3
+   variable             n_miss pct_miss
+   &lt;chr&gt;                 &lt;int&gt;    &lt;dbl&gt;
+ 1 median_family_income     10   0.0318
+ 2 num_counties_in_st       10   0.0318
+ 3 st_cost_rank             10   0.0318
+ 4 st_med_aff_rank          10   0.0318
+ 5 st_income_rank           10   0.0318
+ 6 case_id                   0   0     
+ 7 state_abv                 0   0     
+ 8 metro                     0   0     
+ 9 areaname                  0   0     
+10 county                    0   0     
+# ℹ 17 more rows</code></pre>
+</div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">Piped data</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">31430</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">logical</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 11%">
+<col style="width: 14%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">state</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">areaname</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">183</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">2561</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">county</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">33</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1877</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">family_member_count</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: logical</strong></p>
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: left;">count</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">isMetro</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.37</td>
+<td style="text-align: left;">FAL: 19730, TRU: 11700</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 8%">
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">case_id</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1589.31</td>
+<td style="text-align: right;">917.22</td>
+<td style="text-align: right;">1.00</td>
+<td style="text-align: right;">792.00</td>
+<td style="text-align: right;">1593.00</td>
+<td style="text-align: right;">2386.00</td>
+<td style="text-align: right;">3171.00</td>
+<td style="text-align: left;">▇▇▇▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">housing_cost</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">11073.67</td>
+<td style="text-align: right;">4165.61</td>
+<td style="text-align: right;">4209.31</td>
+<td style="text-align: right;">8580.00</td>
+<td style="text-align: right;">10416.00</td>
+<td style="text-align: right;">12444.00</td>
+<td style="text-align: right;">61735.59</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">food_cost</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">8287.50</td>
+<td style="text-align: right;">3271.14</td>
+<td style="text-align: right;">2220.28</td>
+<td style="text-align: right;">5801.42</td>
+<td style="text-align: right;">8129.16</td>
+<td style="text-align: right;">10703.62</td>
+<td style="text-align: right;">31178.62</td>
+<td style="text-align: left;">▇▇▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">transportation_cost</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13593.86</td>
+<td style="text-align: right;">1640.46</td>
+<td style="text-align: right;">2216.46</td>
+<td style="text-align: right;">12535.16</td>
+<td style="text-align: right;">13698.16</td>
+<td style="text-align: right;">14765.76</td>
+<td style="text-align: right;">19816.48</td>
+<td style="text-align: left;">▁▁▃▇▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">healthcare_cost</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">13394.03</td>
+<td style="text-align: right;">5204.55</td>
+<td style="text-align: right;">3476.38</td>
+<td style="text-align: right;">9667.44</td>
+<td style="text-align: right;">13082.70</td>
+<td style="text-align: right;">16657.82</td>
+<td style="text-align: right;">37252.27</td>
+<td style="text-align: left;">▅▇▃▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">other_necessities_cost</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7015.32</td>
+<td style="text-align: right;">2397.42</td>
+<td style="text-align: right;">2611.64</td>
+<td style="text-align: right;">5286.35</td>
+<td style="text-align: right;">6733.06</td>
+<td style="text-align: right;">8413.09</td>
+<td style="text-align: right;">28829.44</td>
+<td style="text-align: left;">▇▅▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">childcare_cost</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">9879.58</td>
+<td style="text-align: right;">6778.22</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">5341.62</td>
+<td style="text-align: right;">10166.34</td>
+<td style="text-align: right;">14276.38</td>
+<td style="text-align: right;">48831.09</td>
+<td style="text-align: left;">▇▇▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">taxes</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">7657.71</td>
+<td style="text-align: right;">3339.80</td>
+<td style="text-align: right;">1027.80</td>
+<td style="text-align: right;">5597.97</td>
+<td style="text-align: right;">6898.47</td>
+<td style="text-align: right;">8790.21</td>
+<td style="text-align: right;">47753.39</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">total_cost</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">70901.68</td>
+<td style="text-align: right;">21846.55</td>
+<td style="text-align: right;">30087.66</td>
+<td style="text-align: right;">53776.02</td>
+<td style="text-align: right;">70977.68</td>
+<td style="text-align: right;">85371.34</td>
+<td style="text-align: right;">223717.55</td>
+<td style="text-align: left;">▇▇▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">median_family_income</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">68316.00</td>
+<td style="text-align: right;">16886.97</td>
+<td style="text-align: right;">25529.98</td>
+<td style="text-align: right;">57223.99</td>
+<td style="text-align: right;">65955.61</td>
+<td style="text-align: right;">76136.07</td>
+<td style="text-align: right;">177662.47</td>
+<td style="text-align: left;">▂▇▁▁▁</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 15 × 3
+   variable               n_miss pct_miss
+   &lt;chr&gt;                   &lt;int&gt;    &lt;dbl&gt;
+ 1 median_family_income       10   0.0318
+ 2 case_id                     0   0     
+ 3 state                       0   0     
+ 4 isMetro                     0   0     
+ 5 areaname                    0   0     
+ 6 county                      0   0     
+ 7 family_member_count         0   0     
+ 8 housing_cost                0   0     
+ 9 food_cost                   0   0     
+10 transportation_cost         0   0     
+11 healthcare_cost             0   0     
+12 other_necessities_cost      0   0     
+13 childcare_cost              0   0     
+14 taxes                       0   0     
+15 total_cost                  0   0     </code></pre>
+</div>
+</div>
+<p>The fbc_data there are 27 variables and 31,430 observations. Within this, there are twenty-three numerical variables and four categorical variables. However, I want to change the metro variable from being a numerical variable with only 0 and 1s to that of a logical later on. Five variables, which all pertain to different rankings and extra information, share the same amount of missing data. However, I feel that since it is such a small percentage, with each missing only 10 values (0,3181) respectively of their portion of the data, I will see how I can adapt or change my analysis to either ignore or get rid of this missingness altogether.</p>
+<p>Looking at the smaller version of the data, which looks only at the annual costs has 15 variables and 31430 observations. Within this, there are five categorical variables and ten numerical variables. There is only one variable which has missing values, being the median_family_income variable. It is missing ten instances (0,3181 of the data), thus since it is a small number, I will see how I can operate around this missingness. This variable was also one of the five missing in the larger dataset, thus this helps to prove that this dataset is the same as the larger fbc_data dataset, but just showcasing specific variables.</p>
 </section>
 <section id="potential-data-issues" class="level2">
 <h2 class="anchored" data-anchor-id="potential-data-issues">Potential data issues</h2>
-<p>Blah blah blah</p>
+<p>I think the main issues that I will face is being able to figure out how to navigate looking at all the different levels that my data is assessing, relating to the different family types, different counties, different states, and how they differ between annual and monthly cost.</p>
+<p>Additionally, I feel that I might struggle slightly with wanting to add in my own variables of minimum wage and the racial composition or racial majority of each county into my dataset and analysis.</p>
+<p>Furthermore, I have to look more into where the missing data for the variables lie, and how I can navigate around them in order to still provide similar and consistent comparisons for each county and family type.</p>
 </section>
 <section id="misc" class="level2">
 <h2 class="anchored" data-anchor-id="misc">Misc</h2>
-<p>Blah Blah</p>
 </section>
 
 
