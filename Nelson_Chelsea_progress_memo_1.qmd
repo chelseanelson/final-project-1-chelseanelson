@@ -140,4 +140,21 @@ consistent comparisons for each county and family type.
 
 ## Misc
 
+As I have been discussing above, I plan to add other information such as 
+minimum wage for each state and the ethnic makeup or majority in each county,
+if I am able to find this for each or most counties in America. I plan to add
+the minimum wage through using the case when function, however I am unsure
+of how I want to add the ethnic makeup variable to my dataset. Currently,
+I think I will make my own dataset in excel, and then join it together with 
+my current dataset. 
+
+Furthermore, I currently feel that I want to look at how 
+minimum wage of each state corresponds with the annual cost in each county and 
+how being in a metro area makes this either higher or lower. 
+
+Thinking about this, I was wondering if I should look to see if different 
+metro areas have different minimum wages than the state as a whole as well. 
+
+
+
 
