@@ -26,11 +26,8 @@ editor:
 Repo](https://github.com/stat301-1-2023-fall/final-project-1-chelseanelson)
 :::
 
-## Packages 
-
 ```{r}
 #| label: loading_packages 
-#| code-fold: false
 
 library(tidyverse)
 library(readxl)
