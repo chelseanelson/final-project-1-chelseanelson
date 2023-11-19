@@ -34,18 +34,14 @@ library(tidyverse)
 library(readxl)
 
 # loading datasets
-
 # larger version of dataset
 fbc_data <- read_excel("data/raw/fbc_data_2022.xlsx", sheet = "County") %>% 
   janitor::clean_names()
 fbc_data_codebook <- read_excel("data/raw/fbc_data_2022.xlsx", 
                                 sheet = "Codebook")
-fbc_data
-fbc_data_codebook
 
 # smaller version of dataset --> only shows annual cost
 cost_of_living_us <- read_csv("data/raw/cost_of_living_us.csv") 
-cost_of_living_us
 
 ```
 
@@ -101,10 +97,8 @@ fbc_data <- fbc_data %>% mutate(
 )
 
 fbc_data %>% 
-  relocate(minimum_wage) 
-
-#%>% 
- #knitr::kable() %>% kableExtra::kable_styling()
+  relocate(minimum_wage) %>% slice_sample(n = 10) %>%
+ knitr::kable()
 
 # adding racial majority of county 
 
