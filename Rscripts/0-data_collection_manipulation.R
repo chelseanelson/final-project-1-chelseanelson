@@ -1,57 +1,30 @@
----
-title: "Progress Memo 2"
-subtitle: |
-  | Final Project 
-  | Data Science 1 with R (STAT 301-1)
-author: "Chelsea Nelson"
-date: today
-format:
-  html:
-    
-    toc: true
-    embed-resources: true
-execute:
-  echo: false
-  warning: false
-from: markdown+emoji 
-editor: 
-  markdown: 
-    wrap: 72
----
-
-::: {.callout-tip icon="false"}
-## Github Repo Link
-
-[Final Project 1
-Repo](https://github.com/stat301-1-2023-fall/final-project-1-chelseanelson)
-:::
-
-```{r}
-#| label: loading_packages_and_datsets
-
-# loading packages
+### Loading Packages ----
 library(tidyverse)
 library(readxl)
-
-# loading datasets
-# larger version of dataset
-fbc_data <- read_excel("data/raw/fbc_data_2022_raw.xlsx", sheet = "County") %>% 
+# Data Collection ----
+## larger version of dataset
+fbc_data <- read_excel("data/raw/fbc_data_2022_raw.xlsx", sheet = "County") %>%
   janitor::clean_names()
 fbc_data_codebook <- read_excel("data/raw/fbc_data_2022_raw.xlsx", 
                                 sheet = "Codebook")
+fbc_data
+fbc_data_codebook
 
 # smaller version of dataset --> only shows annual cost
 cost_of_living_us <- read_csv("data/raw/cost_of_living_us_raw.csv") 
+cost_of_living_us
 
-```
+# racial majority dataset --> joining to my fbc_data 
 
-# Progress Summary
+# Checking for NA Data ----
+# skimming the data for NA 
+fbc_data %>% skimr::skim()
+fbc_data %>% naniar::miss_var_summary()
 
-## Data Wrangling
+cost_of_living_us %>% skimr::skim()
+cost_of_living_us %>% naniar::miss_var_summary()
 
-```{r}
-#| label: data_wrangling 
-
+# Data Manipulation and Wrangling ----
 # adding minimum wage
 fbc_data <- fbc_data %>% mutate(
   minimum_wage = case_when(
@@ -93,23 +66,21 @@ fbc_data <- fbc_data %>% mutate(
     state_abv == "VT" ~ 12.55,
     state_abv == "WA" ~ 14.49,
     state_abv == "WV" ~ 8.75
-    )
+  )
 )
 
+# ensuring what it looks like
 fbc_data %>% 
-  relocate(minimum_wage) %>% slice_sample(n = 10) %>%
- knitr::kable()
+  relocate(minimum_wage) %>%
+  DT::datatable()
 
 # adding racial majority of county 
 
 
 
-```
 
-```{r}
-#| label: testing_code
-#| results: hide
 
+# testing manipulations
 fbc_data %>% 
   relocate(minimum_wage) %>% 
   filter(state_abv == "OR" & county == "Washington County")
@@ -122,30 +93,7 @@ fbc_data %>%
   relocate(minimum_wage) %>% 
   filter(state_abv == "NY" & 
            county %in% c("New York County", "Albany County"))
-```
 
 
-State what I did in my code here 
-
-## Current EDA
-
-### Univariate Analysis
 
 
-### Bivariate Analysis
-
-
-### Multivariate Analysis 
-
-
-### Main findings so far
-
-
-### Questions that I have created 
-
-# Next Steps
-
-I plan to make a codebook for my dataset within RStudio, rather than 
-making it in excel and then importing it into RStudio.
-
-## Research To Explore
