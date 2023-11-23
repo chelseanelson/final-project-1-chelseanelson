@@ -1,8 +1,17 @@
 # Categorical Univariate Analysis ----
 
 # looking at count of metro to nonmetro counties in total
-fbc_data %>% ggplot(aes(metro)) + geom_bar(fill = 
-                                              "lightblue")
+figure_1_univariate_metro <- fbc_data %>% ggplot(aes(metro)) + 
+  geom_bar(color = "white", fill = "black") + 
+  labs(
+  x = "Metro Status",
+  y = "Count",
+  title = "Distribution of Metro Status"
+) + 
+  scale_x_discrete(labels = c("0" = "Nonmetro", "1" = "Metro")) + 
+  theme_light() 
+
+ggsave("figures/univariate/figure-1.png", figure_1_univariate_metro)
 
 # looking at count of how many times each state appears, 
 # thus how many counties there are 
@@ -13,16 +22,42 @@ fbc_data %>% ggplot(aes(region)) + geom_bar(color = "white")
 
 # Numerical Univariate Analysis ----
 fbc_data %>% ggplot(aes(housing_monthly)) + 
-  geom_histogram(color = "white", binwidth = 50)
+  geom_histogram(color = "white", binwidth = 50) +
+  labs(
+    title = "Distribution of Housing Monthly Costs",
+    x = "Housing Monthly Costs",
+    y = "Count"
+  ) + 
+  theme_light()
+
+
 fbc_data %>% ggplot(aes(healthcare_annual)) + 
-  geom_histogram(color = "white", binwidth = 1000)
+  geom_histogram(color = "white", binwidth = 1000) +
+  labs(
+    title = "Distribution of Healthcare Annual Costs",
+    x = "Healthcare Annual Costs",
+    y = "Count"
+  ) + 
+  theme_light()
 # what other factors are playing into the healthcare annual cost?
 # location, family type, racial background
 
 fbc_data %>% ggplot(aes(total_annual)) +
-  geom_histogram(color = "white", binwidth = 2500)
+  geom_histogram(color = "white", binwidth = 2500) +
+  labs(
+    title = "Distribution of Total Annual Costs",
+    x = "Total Annual Costs",
+    y = "Count"
+  ) + 
+  theme_light()
 fbc_data %>% ggplot(aes(total_monthly)) + 
-  geom_histogram(color = "white", binwidth = 250)
+  geom_histogram(color = "white", binwidth = 250) +
+  labs(
+    title = "Distribution of Total Monthly Costs",
+    x = "Total Monthly Costs",
+    y = "Count"
+  ) + 
+  theme_light()
 fbc_data %>% ggplot(aes(food_annual)) + 
   geom_histogram(color = "white", binwidth = 500)
 # does this account for people that use food stamps or how is that intrepretated
@@ -32,13 +67,31 @@ fbc_data %>% ggplot(aes(food_annual)) +
 numerical_distribution_annual <- function(df, numerical_var) {
   df %>% 
     ggplot(aes( {{ numerical_var }})) + 
-    geom_histogram(color = "white", binwidth = 1000)
+    geom_histogram(color = "white", binwidth = 1000) + 
+    labs(
+      title = paste("Distribution of", 
+                    str_replace_all(quo_name(ensym(numerical_var)), "_", " "), 
+                    "costs"),
+      x = paste(str_to_title(
+        str_replace_all(quo_name(ensym(numerical_var)), "_", " ")), "Costs"),
+      y = "Count"
+    ) + 
+    theme_light()
 }
 
 numerical_distribution_monthly <- function(df, numerical_var) {
   df %>% 
     ggplot(aes( {{ numerical_var }})) + 
-    geom_histogram(color = "white", binwidth = 50)
+    geom_histogram(color = "white", binwidth = 50) + 
+    labs(
+      title = paste("Distribution of", 
+                    str_replace_all(quo_name(ensym(numerical_var)), "_", " "), 
+                    "costs"),
+      x = paste(str_to_title(
+        str_replace_all(quo_name(ensym(numerical_var)), "_", " ")), "Costs"),
+      y = "Count"
+    ) + 
+    theme_light()
 }
 
 fbc_data %>% numerical_distribution_monthly(food_monthly)

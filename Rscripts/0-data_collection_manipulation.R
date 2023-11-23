@@ -6,10 +6,10 @@ library(readxl)
 ## larger version of dataset
 fbc_data <- read_excel("data/raw/fbc_data_2022_raw.xlsx", sheet = "County") %>%
   janitor::clean_names()
-fbc_data_codebook <- read_excel("data/raw/fbc_data_2022_raw.xlsx", 
+fbc_data_codebook_raw <- read_excel("data/raw/fbc_data_2022_raw.xlsx", 
                                 sheet = "Codebook")
 fbc_data
-fbc_data_codebook
+fbc_data_codebook_raw
 
 # smaller version of dataset --> only shows annual cost
 cost_of_living_us <- read_csv("data/raw/cost_of_living_us_raw.csv") 
@@ -119,6 +119,9 @@ fbc_data <- fbc_data %>%
 # ensuring missingness as been taken care of
 fbc_data %>% skimr::skim()
 
+
+# saving as rds to use in qmd file 
+write_rds(fbc_data, "data/fbc_data")
 
 # testing manipulations
 fbc_data %>% 
