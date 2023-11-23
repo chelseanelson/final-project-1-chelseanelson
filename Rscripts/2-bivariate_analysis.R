@@ -57,10 +57,10 @@ numerical_regional <- function(numerical_var) {
 
 # Family Type ----
 
-numerical_family_type(total_annual)*
-numerical_family_type(healthcare_annual)*
+figure_1_bivariate_family_total_a <- numerical_family_type(total_annual)
+numerical_family_type(healthcare_annual)
 numerical_family_type(food_annual)
-numerical_family_type(total_monthly)*
+figure_2_bivariate_family_total_m <- numerical_family_type(total_monthly)
 numerical_family_type(food_monthly)
 numerical_family_type(transportation_monthly)
 # interesting that transportation is pretty similar across the board is this 
@@ -71,20 +71,20 @@ numerical_family_type(childcare_annual)
 numerical_family_type(childcare_monthly)
 # the average cost of childcare is also pretty similar across the board as well
 # on both the annual and monthly levels
-numerical_family_type(healthcare_monthly)*
+numerical_family_type(healthcare_monthly)
 
 # Metropolitan -----
 
-numerical_metro(total_annual)*
-numerical_metro(healthcare_annual)*
+figure_3_bivariate_metro_total_a  <- numerical_metro(total_annual)
+numerical_metro(healthcare_annual)
 numerical_metro(food_annual)
-numerical_metro(total_monthly)*
+figure_4_bivariate_metro_total_m <- numerical_metro(total_monthly)
 numerical_metro(food_monthly)
 numerical_metro(transportation_monthly)
 numerical_metro(transportation_annual)
 numerical_metro(childcare_annual)
 numerical_metro(childcare_monthly)
-numerical_metro(healthcare_monthly)*
+numerical_metro(healthcare_monthly)
 
 
 # It is interesting that on the nation level there is not a big different 
@@ -93,16 +93,38 @@ numerical_metro(healthcare_monthly)*
 
 # Regional ----
 
-numerical_regional(total_annual)*
-numerical_regional(healthcare_annual)*
+figure_5_bivariate_regional_total_a <- numerical_regional(total_annual)
+numerical_regional(healthcare_annual)
 numerical_regional(food_annual)
-numerical_regional(total_monthly)*
+figure_6_bivariate_regional_total_m <- numerical_regional(total_monthly)
 numerical_regional(food_monthly)
 numerical_regional(transportation_monthly)
 numerical_regional(transportation_annual)
 numerical_regional(childcare_annual)
 numerical_regional(childcare_monthly)
-numerical_regional(healthcare_monthly)*
+numerical_regional(healthcare_monthly)
+
+
+total_annual_combined_plots_bi <- figure_1_bivariate_family_total_a /
+  figure_3_bivariate_metro_total_a / figure_5_bivariate_regional_total_a
+
+total_monthly_combined_plots_bi <- figure_2_bivariate_family_total_m /
+  figure_4_bivariate_metro_total_m / figure_6_bivariate_regional_total_m
+
+
+
+
+# saving plots 
+ggsave("figures/bivariate/figure-1_bi.png", figure_1_bivariate_family_total_a)
+ggsave("figures/bivariate/figure-2_bi.png", figure_2_bivariate_family_total_m)
+ggsave("figures/bivariate/figure-3_bi.png", figure_3_bivariate_metro_total_a)
+ggsave("figures/bivariate/figure-4_bi.png", figure_4_bivariate_metro_total_m)
+ggsave("figures/bivariate/figure-5_bi.png", figure_5_bivariate_regional_total_a)
+ggsave("figures/bivariate/figure-6_bi.png", figure_6_bivariate_regional_total_m)
+ggsave("figures/bivariate/figure-7_bi.png", total_annual_combined_plots_bi)
+ggsave("figures/bivariate/figure-8_bi.png", total_monthly_combined_plots_bi)
+
+
 
 
 # At the national level there seems to be little to no differences in the 

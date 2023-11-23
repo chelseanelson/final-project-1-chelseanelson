@@ -200,7 +200,13 @@ width="697"}
 ![Total Monthly Expenses based on family type, metro status, and geographical region](figures/bivariate/figure-8_bi.png){#fig-5
 width="697"}
 
-
+Looking at each set of plots, we see that the only real different currently is 
+when we look at the different family types, the total expenses 
+(both annual and monthly) distributions move more and more to the left, 
+increasing. This makes senses as larger families tend to have more expenses. 
+Otherwise on the geographical and metro status levels, we see little to no 
+differences between total annual expenses. Thus moving the analysis more to the
+microlevel will help to find those currently hidden differences. 
 
 ### Main findings so far
 

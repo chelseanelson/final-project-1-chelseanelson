@@ -2,6 +2,7 @@
 library(tidyverse)
 library(readxl)
 library(patchwork)
+
 # Data Collection ----
 ## larger version of dataset
 fbc_data <- read_excel("data/raw/fbc_data_2022_raw.xlsx", sheet = "County") %>%
