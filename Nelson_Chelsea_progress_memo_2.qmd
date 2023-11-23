@@ -106,8 +106,7 @@ important to highlight the difference in the amount of nonmetro areas to
 metro areas in the dataset to gauge if this geographical difference will
 have any impact of how I view and analyze my findings in the future.
 
-![Looking at Metro Status of
-Counties](figures/univariate/figure-1.png){#fig-1}
+![Looking at Metro Status of Counties](figures/univariate/figure-1.png){#fig-1}
 
 Above in @fig-1 we see that there are a lot more instances of counties
 being in nonmetropolitan areas than to that of metropolitan areas. I am
@@ -182,16 +181,87 @@ each of these variables, alongside variables like metro status and region.
 
 ### Bivariate Analysis
 
+As I made my move to bivariate analysis, I am still looking at the national
+level assessing to see now if there was any differences between the different 
+types of expenses, both at the monthly and annual levels, in relation with
+metro status, family type, and geographical region. Overall, I found that 
+for all three characteristics, the difference expenses did not seem to have
+much to any differences between them. Thus, I think that at a national level
+we can conclude that there is little to no difference between expenses in terms
+of metro status, family type, and geographical region, thus meaning that if 
+there are differences present they would be more visual at the regional, state,
+and county regions. Below, I have provided figures of the relationship between
+total expenses for both annually and monthly to that of family type, metro 
+status and geographical region to provide visual evidence to my claim.
+
+![Total Annual Expenses based on family type, metro status, and geographical region](figures/bivariate/figure-7_bi.png){#fig-4
+width="697"}
+
+![Total Monthly Expenses based on family type, metro status, and geographical region](figures/bivariate/figure-8_bi.png){#fig-5
+width="697"}
+
+
 
 ### Main findings so far
 
+So far, I have only look at these relationship on the national level. However,
+in terms of next steps moving to the regional and state level are next in 
+order to find more compelling results. 
+
+One of the main findings that I have found so far is that at the national level,
+there seems to be a lot of disparities in terms of how much people spend within
+their family types on healthcare, both at the annual and monthly levels. This 
+is surprising because compared to the other variables, healthcare had 
+increasingly more variation in its distribution bring attention to what could
+be the possible factors pertaining to this. Currently, I wonder if state policies 
+play into this as well as the type of insurances that people have. 
+Additionally, I wonder if this is a regional inconsistency or due to different
+metro status. These questions are ones I hope to expand on as I further my 
+analysis.
+
+Another main finding is that through my early bivariate analysis, I concluded
+that the national level is too broad to find differences between expenses 
+based on the categorical variables in which we relate them to. Thus to find 
+statistically significant evidence we have to look more at microlevels and then
+perhaps expand our findings to the macrolevel rather than looking at the macro
+and then basing the micro off of those nonexistent findings.
+
+
+
 ### Questions that I have created
+
+Currently I want to look at the main factors causing for the large spread
+in the our distributions of healthcare both on the monthly and annual level,
+while also seeing where the breakdown of the total expenses on the monthly
+and annual levels might break down based on region or state. 
+
+Additionally, I would like to see if families in states with higher minimum 
+wages better able to meet their budget requirements, while also assessing if 
+families in states with robust public transportation systems able to 
+allocate less of their budget to transportation costs, with more of the expenses
+turning towards housing instead.
+
+Furthermore, I am interested in looking at, if I implement this variable,
+how racial majority of an county corresponds to the main expenses of the 
+citizens as well as the amounts that they spend. Within this I think it would
+be interesting to look at state policies and tax expenses 
+as well and see if we can draw conlcusions based on these factors as well. 
 
 # Next Steps
 
-I plan to make a codebook for my dataset within RStudio, rather than
-making it in excel and then importing it into RStudio.
+In terms of next steps, I hope to do some more work on looking statistically 
+at correlations between the main variables in which I want to look at, 
+beginning to answer the questions that I wish to assess. 
+Additionally, I hope to create linear models to ensure these relationships
+as well. Furthermore, I want to look more at state specifically relationships,
+making my way towards doing mutlivariate analysis to really find statistically
+significant results for differences in expenses on the levels of 
+county to county, state to state, and region to region.
 
-### Multivariate Analysis
+I want to still add in my racial majority census data into this 
+dataset as well so that I can further analyzed my variables on different levels 
+accounting for mutliple reasons in which expenses in a county are the way 
+they are. 
 
-## Research To Explore
+Lastly, I plan to make a codebook for my dataset after completing my data 
+collection in terms of adding the racial majority of each county. 
