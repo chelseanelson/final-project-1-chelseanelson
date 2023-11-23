@@ -25,11 +25,14 @@ editor:
 [Final Project 1
 Repo](https://github.com/stat301-1-2023-fall/final-project-1-chelseanelson)
 :::
+
 # Progress Summary
+
 ```{r}
 #| label: loading-packages
 library(tidyverse)
 library(readxl)
+library(magick)
 
 fbc_data <- read_rds("data/fbc_data")
 
@@ -37,12 +40,19 @@ fbc_data <- read_rds("data/fbc_data")
 
 ## Data Wrangling
 
-In terms of wrangling and fixing up my data before I officially using it, I 
-made sure that I tackled on how I was going to work around the missingness
-that was in my dataset. After further investigation, I realized that all of the missing values for my variables corresponded to one specific county and its multiple different family cases. Thus in this case, I decided it would be best to fully remove the observations of that particular county 
-from my dataset, as I felt leaving it in would case more problems in terms of 
-furthering my analysis than taking it out. Thus below I have shown the variables that previously had the instances of missingness to further assure 
-that the missingness in my data in gone. Thus I can move forward in my analysis without the worry of navigating around missingness in particular variables that I want to use. 
+In terms of wrangling and fixing up my data before I officially using
+it, I made sure that I tackled on how I was going to work around the
+missingness that was in my dataset. After further investigation, I
+realized that all of the missing values for my variables corresponded to
+one specific county and its multiple different family cases. Thus in
+this case, I decided it would be best to fully remove the observations
+of that particular county from my dataset, as I felt leaving it in would
+case more problems in terms of furthering my analysis than taking it
+out. Thus below I have shown the variables that previously had the
+instances of missingness to further assure that the missingness in my
+data in gone. Thus I can move forward in my analysis without the worry
+of navigating around missingness in particular variables that I want to
+use.
 
 ```{r}
 #| label: removing-na-data 
@@ -51,11 +61,30 @@ that the missingness in my data in gone. Thus I can move forward in my analysis 
 fbc_data %>% naniar::miss_var_summary() %>% filter(variable %in% c("median_family_income","num_counties_in_st","st_cost_rank","st_med_aff_rank", "st_income_rank")) %>% knitr::kable()
 ```
 
-After navigating through how I was going to handle missingness in my dataset, I move forward onto adding variables that I feel will help create different questions and associations in my analysis. These added variables include one which provides information on the minimum wage in each state for 2022 (`minimum_wage`) [^1], whiles the other showcases the associated geographical region of each state (`region`). [^2] Additionally, I altered the variable type of the `metro` variable, to be representative as a factor with 0 being that the county is located in a nonmetropolitan area, and with a 1 representing the county being located in a metropolitan area. Below I have provided the updated version of my dataset, including both my new variables. At this point, I still plan to add the racial majority makeup for each county, however I am still looking for ways that I can easily input this information without it being too much of a hassle. Thus currently, I have furthered my analysis without this information, but have left spaces and plan to still include it in my final project. 
+After navigating through how I was going to handle missingness in my
+dataset, I move forward onto adding variables that I feel will help
+create different questions and associations in my analysis. These added
+variables include one which provides information on the minimum wage in
+each state for 2022 (`minimum_wage`) [^1], whiles the other showcases
+the associated geographical region of each state (`region`). [^2]
+Additionally, I altered the variable type of the `metro` variable, to be
+representative as a factor with 0 being that the county is located in a
+nonmetropolitan area, and with a 1 representing the county being located
+in a metropolitan area. Below I have provided the updated version of my
+dataset, including both my new variables. At this point, I still plan to
+add the racial majority makeup for each county, however I am still
+looking for ways that I can easily input this information without it
+being too much of a hassle. Thus currently, I have furthered my analysis
+without this information, but have left spaces and plan to still include
+it in my final project.
 
-[^1]: This information was sourced from [Paycom 2023 Guide to Every State's Minimum Wage](https://www.paycom.com/resources/blog/minimum-wage-rate-by-state/).
+[^1]: This information was sourced from [Paycom 2023 Guide to Every
+    State's Minimum
+    Wage](https://www.paycom.com/resources/blog/minimum-wage-rate-by-state/).
 
-[^2]: This information was sourced from [Census Regions and Divisions of the United States](https://www2.census.gov/geo/pdfs/maps-data/maps/reference/us_regdiv.pdf).
+[^2]: This information was sourced from [Census Regions and Divisions of
+    the United
+    States](https://www2.census.gov/geo/pdfs/maps-data/maps/reference/us_regdiv.pdf).
 
 ```{r}
 #| label: data_after_wrangling
@@ -68,28 +97,101 @@ fbc_data %>% relocate(minimum_wage, region) %>% DT::datatable()
 
 ### Univariate Analysis
 
-In terms of my univariate analysis, I looked at both the cateogrical and numerical variables, finding the most interesting statistics and figures within my analysis of the numerical variables. 
+In terms of my univariate analysis, I looked at both the categorical and
+numerical variables, finding the most interesting statistics and figures
+within my analysis of the numerical variables.
 
-However before looking into my numerical variables, I believe it is important to highlight the difference in the amount of nonmetro areas to metro areas in the dataset to gauge if these geographical differences will have any impact of how I view and analyze my findings in the future. 
+However before looking into my numerical variables, I believe it is
+important to highlight the difference in the amount of nonmetro areas to
+metro areas in the dataset to gauge if this geographical difference will
+have any impact of how I view and analyze my findings in the future.
 
-![Looking at Metro Status of Counties](figures/univariate/figure-1.png){#fig-1}
+![Looking at Metro Status of
+Counties](figures/univariate/figure-1.png){#fig-1}
 
-Above in @fig-1 we see
+Above in @fig-1 we see that there are a lot more instances of counties
+being in nonmetropolitan areas than to that of metropolitan areas. I am
+interested to see how this will affects aspects such as transportation
+and healthcare as there are heavy implications on how being further from
+a metro area can cause for more travel to gain necessitate items
+sometimes as well as it seems that people who are further away from
+hospitals or don't have such as an abundance of hospitals to them as
+though in extremely urban and metro areas, might go to the hospital less
+often. So I am really excited to look more into these relationships.
+Additionally, from this we could then also compare metropolitan areas in
+the south to that of to the north and same with nonmetropolitan areas in
+each region to gauge if geographical region matters more than metro
+status or vice versa.
 
+Looking at my numerical variables, I want to focus on and expand my
+research mostly on the variables looking at the total annual, total
+monthly, healthcare annual, healthcare monthly, housing monthly and
+housing annual costs. For me these are the greatest variables in terms
+of finding differences between the counties on the micro and macro
+levels. Below I will be providing a brief explanation of the
+distribution of each variable at the national (univariate) level, and I
+hope as I go further into my bivariate and mutlivariate analyses, I will
+expand on this to regional and state levels.
+
+![Looking at Annual Costs](figures/univariate/figure-8.png){#fig-2
+width="697"} 
+
+Looking at @fig-2 we see that the distribution of healthcare annual costs has a
+extremely large spread in comparison to the other variables at the annual level.
+Within that plot, there is seems to be a symmetric unimodal or 
+even could be said mutlimodal shape with most average costs of healthcare on 
+the annual level being around $12000. However even outside of this average 
+value, there are still smaller significant subgroups consisting of average 
+healthcare costs being around $6000 and $20000. I feel that there are so many 
+potential reasons for this large spread in healthcare annual costs, that I 
+would love to look further into, such as family size and location, as well as
+how the minimum wage rate and median family income relate to these higher 
+costs in healthcare. Expanding on this we then can look at distribution of 
+annual housing cost and we see that there is a symmetric right-skewed 
+distribution as most people tend to spend around $12000 on housing annually. I 
+am surprised that there isn't a larger spread, as I know that housing in cities
+tend to be more expensive than housing in nonmetropolitan areas, thus I
+hope to see if I can actually find this distinction in my research. Lastly, in 
+terms of the annual variables, the distribution of annual total costs spent on
+a nationwide level as a bimodal and slightly right-skewed shape as on average
+most people spend around $60000 a year. Within this plot of total annual 
+expenses, we see that although we have our average value, there is a lot of 
+spread and variation away from this average that we most account for. I hope to
+do this by looking at how the total annual expenses change state by state, while 
+also perhaps seeing how the different expenses within the total are accounted
+for differently as well. 
+
+![Looking at Monthly Costs](figures/univariate/figure-9.png){#fig-3 
+width="697"}
+
+Turning our attention the distributions of the same variables above but now at 
+the monthly level, we see similar distributions trends to those in which I 
+pointed out before. For example, looking at the distribution of healthcare 
+costs monthly, we see lot of variability in the average expenses that 
+healthcare is monthly, alongside a mutlimodal slightly right-skewed shape, 
+with an average cost around $1200 a month. In terms of monthly housing expenses,
+the plot showcases that on average people spend about $900 on housing, with 
+some special cases of people spending over $2000 a month, as our distribution
+produces a unimodal right-skewed shape. Lastly looking at total monthly 
+expenses, we also see a pretty large spread in the amount of that family types 
+spend monthly at the national level, with the average being around $7000 and 
+shape in the distribution of unimodal and right-skewed. From each of theses
+distributions, I hope to go further and see why certain variables have such
+large distributions in comparison to others, as well as the relationship between
+each of these variables, alongside variables like metro status and region. 
 
 ### Bivariate Analysis
 
 
 ### Main findings so far
 
-
-### Questions that I have created 
+### Questions that I have created
 
 # Next Steps
 
-I plan to make a codebook for my dataset within RStudio, rather than 
+I plan to make a codebook for my dataset within RStudio, rather than
 making it in excel and then importing it into RStudio.
 
-### Multivariate Analysis 
+### Multivariate Analysis
 
 ## Research To Explore
