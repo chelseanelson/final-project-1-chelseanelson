@@ -270,4 +270,5 @@ accounting for mutliple reasons in which expenses in a county are the way
 they are. 
 
 Lastly, I plan to make a codebook for my dataset after completing my data 
-collection in terms of adding the racial majority of each county. 
+collection in terms of adding the racial majority of each county. While also
+working on creating my readme files for my github repo.
