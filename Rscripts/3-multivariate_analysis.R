@@ -68,6 +68,7 @@ total_annual_expenses_family_region <- fbc_data %>%
   scale_x_discrete(labels = c("South", "West", "Northeast", "Midwest")) + 
   scale_y_continuous(labels = scales::comma)
 # I want to add numbers to this, right now numbers are overlaying too much
+# need to work on before going to sleep
 budget_heatmap <- fbc_data %>%
   select(family, region, metro, ends_with("_annual")) %>%
   summarise(
