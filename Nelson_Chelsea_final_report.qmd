@@ -18,13 +18,12 @@ editor:
   markdown: 
     wrap: 72
 ---
-::: {.callout-tip icon="false" apperance = "simple"}
+::: {.callout-tip icon="false" appearance="simple"}
 ## Github Repo Link
 
 [Final Project 1
 Repo](https://github.com/stat301-1-2023-fall/final-project-1-chelseanelson)
 :::
-
 
 ## Introduction
 

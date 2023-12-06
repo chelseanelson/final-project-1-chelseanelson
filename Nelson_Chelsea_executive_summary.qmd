@@ -1,0 +1,34 @@
+---
+title: "Executive Summary"
+subtitle: |
+  | Final Project 
+  | Data Science 1 with R (STAT 301-1)
+author: "Chelsea Nelson"
+date: today
+format:
+  html:
+    
+    toc: true
+    embed-resources: true
+execute:
+  echo: false
+  warning: false
+from: markdown+emoji 
+editor: 
+  markdown: 
+    wrap: 72
+---
+::: {.callout-tip icon="false" appearance="simple"}
+## Github Repo Link
+
+[Final Project 1
+Repo](https://github.com/stat301-1-2023-fall/final-project-1-chelseanelson)
+:::
+
+## Purpose 
+
+## Major Results
+
+## Conclusions 
+
+
