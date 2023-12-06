@@ -126,7 +126,7 @@ fbc_data %>% skimr::skim()
 
 
 # saving as rds to use in qmd file 
-write_rds(fbc_data, "data/fbc_data")
+write_rds(fbc_data, "data/fbc_data.rds")
 
 # testing manipulations
 fbc_data %>% 

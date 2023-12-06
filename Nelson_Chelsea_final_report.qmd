@@ -39,8 +39,6 @@ fbc_data <- read_rds("data/fbc_data.rds")
 # still need to make the codebook
 ```
 
-
-
 ## Introduction
 
 Overview of the EDA. What was the motivation for this analysis? 
