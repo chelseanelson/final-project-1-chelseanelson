@@ -112,10 +112,14 @@ fbc_data <- fbc_data %>%
                        "VT","NH","ME") ~ "northeast"
     )
   )
-  
 
-# adding racial majority of county 
 
+# changing region nad family type to be factors 
+fbc_data <- fbc_data %>% 
+  mutate(
+    region = as_factor(region),
+    family = as_factor(family)
+  )
 
 # ensuring missingness as been taken care of
 fbc_data %>% skimr::skim()
@@ -137,7 +141,3 @@ fbc_data %>%
   relocate(minimum_wage, region) %>% 
   filter(state_abv == "NY" & 
            county %in% c("New York County", "Albany County"))
-
-
-
-
