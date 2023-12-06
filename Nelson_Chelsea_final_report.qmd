@@ -25,6 +25,22 @@ editor:
 Repo](https://github.com/stat301-1-2023-fall/final-project-1-chelseanelson)
 :::
 
+```{r}
+#| label: loading-packages 
+library(tidyverse)
+library(DT)
+```
+
+```{r}
+#| label: loading-data 
+
+fbc_data <- read_rds("data/fbc_data.rds")
+# fbc_data_codebook <- read_csv("data/fbc_data_codebook.csv")
+# still need to make the codebook
+```
+
+
+
 ## Introduction
 
 Overview of the EDA. What was the motivation for this analysis? 
