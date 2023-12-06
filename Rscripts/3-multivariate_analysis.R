@@ -50,7 +50,7 @@ income_disparities <- fbc_data %>%
 # Explore how income disparities within regions and metro classifications correlate with the average cost of living.
 
 
-## questions to assess
+
 # Are there patterns or trends in budget allocation that stand out?
 
 total_annual_expenses_family_region <- fbc_data %>%
@@ -67,8 +67,8 @@ total_annual_expenses_family_region <- fbc_data %>%
   theme_light() +
   scale_x_discrete(labels = c("South", "West", "Northeast", "Midwest")) + 
   scale_y_continuous(labels = scales::comma)
+
 # I want to add numbers to this, right now numbers are overlaying too much
-# need to work on before going to sleep
 budget_heatmap <- fbc_data %>%
   select(family, region, metro, ends_with("_annual")) %>%
   summarise(
@@ -90,7 +90,7 @@ budget_heatmap <- fbc_data %>%
   ) %>%
   ggplot(aes(x = budget_component, y = family, fill = percentage)) +
   geom_tile() +
-  geom_text(aes(label = percentage)) +
+  geom_text(aes(label = scales::percent(percentage))) +
   labs(
     title = "Budget Allocation Heatmap",
     x = "Budget Component",
@@ -99,16 +99,44 @@ budget_heatmap <- fbc_data %>%
   ) +
   theme_light() +
   scale_fill_viridis_c()
+
+# want to split this up to be more representative of the different regions and 
+# metro statuses as well 
+
+# follow-up questions 
+# Analyze how different family types allocate their budget across various categories.
+# Are there significant variations in budget allocation patterns among family types?
   
 
 # Compare the affordability of living in metro and non-metro areas within states.
-# What percentage of the family budget is allocated to different categories (housing, food, healthcare, etc.) across states? 
-# Analyze how different family types allocate their budget across various categories.
-# Are there significant variations in budget allocation patterns among family types?
+# What percentage of the family budget is allocated to different categories (housing, food, healthcare, etc.) across states?
+
+# working on something similar to this right now going to make a function that looks at
+# this for any state, and then preferably compare popular or most influence states in terms of cost of living and such 
+
+
+# questions to assess 
 # Explore how regional factors, minimum wage, and median family income collectively influence the family budget. 
 # Analyze how the metro classification interacts with family types, minimum wage, and the total cost rank.
 # Are there notable differences in family budget challenges between metro and non-metro areas within states?
 # How does the family budget compare to the median income in each state? 
+
+
+fbc_data %>% summarise(
+  median_family_income = mean(median_family_income),
+  avg_total_annual = mean(total_annual),
+  .by = c(state_abv, family)
+) %>%
+ggplot(aes(x = median_family_income, y = avg_total_annual)) +
+  geom_point(aes(color = state_abv)) +
+  labs(
+    title = "Comparison of Family Budget to Median Income",
+    x = "Median Family Income",
+    y = "Total Annual Family Budget",
+    color = "State"
+  ) +
+  facet_wrap(~family) + 
+  theme_light() + scale_x_continuous(labels = scales::comma)
 
 
 fbc_data %>% 
