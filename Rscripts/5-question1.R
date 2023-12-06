@@ -69,7 +69,131 @@ income_disparities <- fbc_data %>%
 # why is this? 
 # housing market, regional economic disparities (certain areas may be more affluent than others), cost of healthcare, income inequalities
 
-
 # on the flip side we see that people in the midwest and metro northeast make more money than they spend on average, being the only groups in this position
 # as everyone else makes less money than they have to spend on average. Is
-# this related to having the best access to public transport,  
+# this related to having the best access to public transport, regional policies. 
+
+# looking at the nonmetro and metro west average distribution of spending in categories
+fbc_data %>% filter(region == "west") %>%
+  select(ends_with("_annual"), metro) %>% 
+  summarise(
+    avg_housing_annual = mean(housing_annual),
+    avg_food_annual = mean(food_annual),
+    avg_transportation_annual = mean(transportation_annual),
+    avg_healthcare_annual = mean(healthcare_annual),
+    avg_other_necessities_annual = mean(other_necessities_annual),
+    avg_childcare_annual = mean(childcare_annual),
+    avg_taxes_annual = mean(taxes_annual),
+    avg_total_annual = mean(total_annual),
+    .by = c(metro)
+  ) %>%
+  pivot_longer(cols = -metro, 
+               names_to = "budget_component", values_to = "cost") %>%
+  ggplot(aes(budget_component,cost)) + geom_col() + facet_grid(~metro) +
+  theme_light() + scale_x_discrete(labels = c("childcare","food", "healthcare","housing","other necessities","taxes","total","transportation")) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+
+# we see here out of total spending housing is highest cost when living in a metro area with transportation being a close second, whereas when living in 
+# a nonmetro area transportation is the largest expense with healthcare and housing being close behind. This is interesting, because healthcare is not one of the high expenses when living in a metro area but is when living in a nonmetro area. Also when comparing the total annual expenses, the people who live a metro area spend around $1000 a year. This could also be because people in the nonmetro have larger families, so I would have to also look at this on the family levels as well. There is also more competition between plans in metro areas thus, making companies offer lower plans to get the most busy, this is uncommon in nonmetro areas. 
+
+fbc_data %>% filter(region == "west") %>%
+  select(ends_with("_annual"), metro,family) %>% 
+  summarise(
+    avg_housing_annual = mean(housing_annual),
+    avg_food_annual = mean(food_annual),
+    avg_transportation_annual = mean(transportation_annual),
+    avg_healthcare_annual = mean(healthcare_annual),
+    avg_other_necessities_annual = mean(other_necessities_annual),
+    avg_childcare_annual = mean(childcare_annual),
+    avg_taxes_annual = mean(taxes_annual),
+    avg_total_annual = mean(total_annual),
+    .by = c(metro,family)
+  ) %>%
+  pivot_longer(cols = -c(metro,family), 
+               names_to = "budget_component", values_to = "cost") %>%
+  ggplot(aes(budget_component,cost, fill = metro)) + 
+  geom_col(position = "dodge") + 
+  facet_wrap(~family) +
+  theme_light() + 
+  scale_x_discrete(labels = c("childcare","food", "healthcare","housing","other necessities","taxes","total","transportation")) + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+# even at the family level, people who live in the west nonmetro areas seem to on average spend more money on healthcare than that of people in the metro areas. Thus this probably pertains to..... (finish this statement)
+# Another interesting result that was found from this is that transporation is slightly allocated a little bit more of people's total expenses in the nonmetro areas than that of in the metro areas. This makes sense as there are buses and public transportation that is accessible in the metro areas that isn't in nonmetro areas, and that people in the west love to use cars still regardless. In all other aspects regardless of family size, people in metro areas seem to spend more money than people in nonmetro areas, which makes sense in terms of metro areas being relatively more expense than nonmetro areas for the most part in America.
+
+# I will be turning the two plots I made just now into functions to be used for all regions. 
+
+# function to look at the nonmetro and metro of a region's average distribution of spending in categories
+distribution_of_spending_metro_region <- function(region) {
+fbc_data %>% filter(region == region) %>%
+select(ends_with("_annual"), metro) %>% 
+  summarise(
+    avg_housing_annual = mean(housing_annual),
+    avg_food_annual = mean(food_annual),
+    avg_transportation_annual = mean(transportation_annual),
+    avg_healthcare_annual = mean(healthcare_annual),
+    avg_other_necessities_annual = mean(other_necessities_annual),
+    avg_childcare_annual = mean(childcare_annual),
+    avg_taxes_annual = mean(taxes_annual),
+    avg_total_annual = mean(total_annual),
+    .by = c(metro)
+  ) %>%
+  pivot_longer(cols = -metro, 
+               names_to = "budget_component", values_to = "cost") %>%
+  ggplot(aes(budget_component,cost)) + 
+    geom_col() + 
+    facet_grid(~metro, labeller = as_labeller(c("0" = "Nonmetro", "1" = "Metro"))) +
+  theme_light() + 
+    scale_x_discrete(labels = c("childcare","food", "healthcare","housing","other necessities","taxes","total","transportation")) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+    labs(
+      title = paste("Distribution of Spending in the Nonmetro and Metro",
+                str_to_title(region)),
+      x = "Budget Components",
+      y = "Cost")
+}
+distribution_of_spending_metro_region("south")
+distribution_of_spending_metro_region("northeast")
+distribution_of_spending_metro_region("midwest")
+# I want to get the amounts written above the bars 
+
+# explain what is occuring in these and write about it 
+
+# function to look at the nonmetro and metro of a region's different family types average distribution of spending in categories
+
+distribution_of_spending_family_region_metro <- function(region) {
+  
+  fbc_data %>% filter(region == region) %>%
+  select(ends_with("_annual"), metro,family) %>% 
+  summarise(
+    avg_housing_annual = mean(housing_annual),
+    avg_food_annual = mean(food_annual),
+    avg_transportation_annual = mean(transportation_annual),
+    avg_healthcare_annual = mean(healthcare_annual),
+    avg_other_necessities_annual = mean(other_necessities_annual),
+    avg_childcare_annual = mean(childcare_annual),
+    avg_taxes_annual = mean(taxes_annual),
+    avg_total_annual = mean(total_annual),
+    .by = c(metro,family)
+  ) %>%
+  pivot_longer(cols = -c(metro,family), 
+               names_to = "budget_component", values_to = "cost") %>%
+  ggplot(aes(budget_component,cost, fill = metro)) + 
+  geom_col(position = "dodge") + 
+  facet_wrap(~family) +
+  theme_light() + 
+  scale_x_discrete(labels = c("childcare","food", "healthcare","housing","other necessities","taxes","total","transportation")) + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+    labs(
+      title = paste("Distribution of Family Size Spending in the Nonmetro and Metro",
+                    str_to_title(region)),
+      x = "Budget Components",
+      y = "Cost",
+      fill = "Metro Classification") + 
+    scale_fill_discrete(labels = c("Nonmetro","Metro"))
+}
+distribution_of_spending_family_region_metro("south")
+distribution_of_spending_family_region_metro("northeast")
+distribution_of_spending_family_region_metro("midwest")
+
+# consistently healthcare seems to be the only areas where on average families who live in nonmetro areas seem to allocate more on their total expense to it than families in metro areas. 
+# I was especially suprised by the closeness in expenses for transportation
+# for metro and nonmetro areas. Especially for the metro northeast and metro midwest, as I feel they are known for having the best public transportation in the United States of America, thus thinking that families that live outside of those metro areas would pay a lot more as they have to have a car and pay for those associated expenses. In everyone other category, it is reasonable and makes sense to assume that families living in metro areas, regardless of size, will pay more than that of families in the nonmetro areas. However thinking on it now I find it interesting that the largest gap between transportation for the metro and nonmetro areas is when the families consist of no children, thus bringing light to how having children more often than not means that the parent is going to have to get a car, decreasing that space between the different allocation of transportation expenses. 
+
