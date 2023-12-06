@@ -7,50 +7,6 @@
 # most expensive state vs. least expensive state 
 # most educated vs. least educated state 
 
-
-# How does the cost of living vary across different geographical regions?
-
-avg_cost_of_living_region_metro <- fbc_data %>% summarise(
-  avg_cost_of_living = mean(total_annual),
-  .by = c(region, metro)) %>% ggplot(aes(region, avg_cost_of_living)) + 
-  geom_col(aes(fill = metro), position = "dodge") + labs(
-   title = "Average Cost of Living By Metro Classification and Region",
-   x = "Region",
-   y = "Average Cost of Living",
-   fill = "Metro\nClassification"
-  ) + theme_light() + 
-  scale_fill_discrete(labels = c("Non-Metro Area", "Metro Area")) + 
-  scale_x_discrete(labels = c("South", "West", "Northeast","Midwest"))
-
-income_disparities <- fbc_data %>% 
-  summarise(
-    avg_cost_of_living = mean(total_annual),
-    median_income = median(median_family_income),
-    .by = c(region, metro)
-  ) %>% 
-  ggplot(aes(median_income, 
-             avg_cost_of_living, color = region, shape = metro)) + 
-  geom_point() + 
-  labs(title = "Income Disparities and Cost of Living by Region and\nMetro Classification",
-       x = "Median Family Income",
-       y = "Average Cost of Living",
-       color = "Region",
-       shape = "Metro Classification") +
-  theme_light() +
-  scale_color_discrete(labels = c("South", "West", "Northeast", "Midwest")) +
-  scale_shape_discrete(labels = c("Non-Metro Area", "Metro Area"))
-
-# from this plot we see that it would be interesting to look further into the 
-# metro south, non-metro northeast, metro midwest, metro and non-metro west 
-
-# follow up questions 
-# Are there notable disparities in housing, transportation, or healthcare costs among regions?
-# Do families in metro areas face different challenges in meeting their budgets compared to those in non-metro areas?
-# Analyze how the metro classification interacts with family types, minimum wage, and the total cost rank.
-# Explore how income disparities within regions and metro classifications correlate with the average cost of living.
-
-
-
 # Are there patterns or trends in budget allocation that stand out?
 
 total_annual_expenses_family_region <- fbc_data %>%
