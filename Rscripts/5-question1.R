@@ -235,8 +235,59 @@ ggsave("figures/multivariate/question1/question1_figure9.png", dist_of_spending_
 
 ggsave("figures/multivariate/question1/question1_figure10.png", dist_of_spending_midwest_fm)
 
-
 # consistently healthcare seems to be the only areas where on average families who live in nonmetro areas seem to allocate more on their total expense to it than families in metro areas. 
 # I was especially suprised by the closeness in expenses for transportation
 # for metro and nonmetro areas. Especially for the metro northeast and metro midwest, as I feel they are known for having the best public transportation in the United States of America, thus thinking that families that live outside of those metro areas would pay a lot more as they have to have a car and pay for those associated expenses. In everyone other category, it is reasonable and makes sense to assume that families living in metro areas, regardless of size, will pay more than that of families in the nonmetro areas. However thinking on it now I find it interesting that the largest gap between transportation for the metro and nonmetro areas is when the families consist of no children, thus bringing light to how having children more often than not means that the parent is going to have to get a car, decreasing that space between the different allocation of transportation expenses. 
+
+## Next Steps ----
+# Consider diving deeper into specific regions or states to understand localized factors influencing the cost of living.
+# Explore correlations between income levels, education, and cost of living to identify potential drivers of disparities.
+# Explore trends in both monthly and total values. You can observe how each category varies on a monthly basis compared to the overall total. Check if there are specific months where certain categories significantly deviate from their overall totals.
+
+correlation_matrix <- fbc_data %>% 
+  select(ends_with("_annual"),ends_with("_monthly"), minimum_wage, median_family_income, st_income_rank) %>% 
+  cor() 
+
+cor_names <- c(
+  "housing - annual", "food - annual", "transportation - annual", 
+  "healthcare - annual", "other necessities - annual", "childcare - annual", 
+  "taxes - annual", "total - annual", "housing - monthly", "food - monthly",
+  "transportation - monthly", "healthcare - monthly", 
+  "other necessities - monthly", "childcare - monthly", "taxes - monthly",
+  "total - monthly", "minimum wage", "median family income", 
+  "in-state income rank"
+)
+
+colnames(correlation_matrix) <- rownames(correlation_matrix) <- cor_names
+
+correlation_plot <- ggcorrplot(correlation_matrix, lab = TRUE, type = "lower") + 
+  labs(
+    title = "Cost of Living Correlations"
+  )
+
+ggsave("figures/bivariate/correlation-matrix.png", correlation_plot)
+
+
+## Notable Disparities in Housing, Transportation, or Healthcare Costs Among Regions:
+# Use box plots or violin plots to visually compare the distributions of housing, transportation, and healthcare costs among different regions.
+# Calculate summary statistics (mean, median, standard deviation) for each region in these specific categories.
+# Conduct hypothesis testing (e.g., t-tests or ANOVA) to determine if there are statistically significant differences in costs among regions.
+
+## Interaction of Metro Classification with Family Types, Minimum Wage, and Total Cost Rank:
+# Utilize multiple facets in your visualizations to explore how metro classification interacts with family types. For example, use facets for different family sizes.
+# Create scatter plots or line plots to examine the relationship between minimum wage and total cost rank, considering metro and non-metro areas separately.
+# Conduct regression analyses to quantify the impact of family types, minimum wage, and total cost rank on the metro classification.
+
+## Correlation of Income Disparities with Average Cost of Living:
+# Generate correlation matrices or heatmaps to visualize the relationships between income disparities within regions and metro classifications with the average cost of living.
+# Use scatter plots to explore the correlation between median family income and average cost of living for different regions and metro classifications.
+# Apply statistical methods such as correlation coefficients to quantify the strength and direction of relationships.
+
+
+
+
+
+
+
+
 

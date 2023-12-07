@@ -140,7 +140,26 @@ ggsave("figures/bivariate/figure-8_bi.png", total_monthly_combined_plots_bi)
 # I want to look at how median family income correlates to total annual costs 
 # on the state, regional, and metro levels
 
-# Racial Majority ----
+# national level correlations 
+correlation_matrix <- fbc_data %>% 
+  select(ends_with("_annual"),ends_with("_monthly"), minimum_wage, median_family_income, st_income_rank) %>% 
+  cor() 
 
-# I want to look at how the ranks correspond to the racial majority of 
-# each state
+cor_names <- c(
+  "housing - annual", "food - annual", "transportation - annual", 
+  "healthcare - annual", "other necessities - annual", "childcare - annual", 
+  "taxes - annual", "total - annual", "housing - monthly", "food - monthly",
+  "transportation - monthly", "healthcare - monthly", 
+  "other necessities - monthly", "childcare - monthly", "taxes - monthly",
+  "total - monthly", "minimum wage", "median family income", 
+  "in-state income rank"
+)
+
+colnames(correlation_matrix) <- rownames(correlation_matrix) <- cor_names
+
+correlation_plot <- ggcorrplot(correlation_matrix, lab = TRUE, type = "lower") + 
+  labs(
+    title = "Cost of Living Correlations"
+  )
+
+ggsave("figures/bivariate/correlation-matrix_national.png", correlation_plot)

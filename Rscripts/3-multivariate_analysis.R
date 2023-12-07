@@ -8,7 +8,6 @@
 # most educated vs. least educated state 
 
 # Are there patterns or trends in budget allocation that stand out?
-
 total_annual_expenses_family_region <- fbc_data %>%
   group_by(region, family) %>% summarise(
     avg_total_annual = mean(total_annual)
@@ -61,7 +60,7 @@ budget_heatmap <- fbc_data %>%
 
 # follow-up questions 
 # Analyze how different family types allocate their budget across various categories.
-# Are there significant variations in budget allocation patterns among family types?
+# Are there significant variations in budget allocation patterns among family type?
   
 
 # Compare the affordability of living in metro and non-metro areas within states.
@@ -73,26 +72,40 @@ budget_heatmap <- fbc_data %>%
 
 # questions to assess 
 # Explore how regional factors, minimum wage, and median family income collectively influence the family budget. 
-# Analyze how the metro classification interacts with family types, minimum wage, and the total cost rank.
-# Are there notable differences in family budget challenges between metro and non-metro areas within states?
 # How does the family budget compare to the median income in each state? 
 
+# function to compare median income to total annual expenses for each state 
+# divided at the region level
 
-fbc_data %>% summarise(
-  median_family_income = mean(median_family_income),
-  avg_total_annual = mean(total_annual),
-  .by = c(state_abv, family)
+# have to fix the function it is not working 
+median_income_total_annual_state <- function(region) {
+
+  fbc_data %>% 
+    filter(state_abv == region) %>% 
+    summarise(
+    median_family_income = mean(median_family_income),
+    avg_total_annual = mean(total_annual),
+    .by = c(state_abv, family)
 ) %>%
 ggplot(aes(x = median_family_income, y = avg_total_annual)) +
-  geom_point(aes(color = state_abv)) +
+  geom_jitter(aes(color = state_abv), size = 2) +
   labs(
-    title = "Comparison of Family Budget to Median Income",
+    title = sprintf("Comparison of Family Budget to Median Income For %sern States", str_to_title(region)),
     x = "Median Family Income",
     y = "Total Annual Family Budget",
     color = "State"
   ) +
   facet_wrap(~family) + 
-  theme_light() + scale_x_continuous(labels = scales::comma)
+  theme_light() + 
+  scale_x_continuous(labels = scales::comma)
+} 
+
+median_income_total_annual_state("TX")
+median_income_total_annual_state("midwest")
+median_income_total_annual_state("northeast")
+median_income_total_annual_state("south")
+
+
 
 
 fbc_data %>% 
