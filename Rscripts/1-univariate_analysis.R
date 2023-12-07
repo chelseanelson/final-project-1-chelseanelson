@@ -99,25 +99,46 @@ numerical_distribution_monthly <- function(df, numerical_var) {
     theme_light()
 }
 
-fbc_data %>% numerical_distribution_monthly(food_monthly)
-fbc_data %>% numerical_distribution_monthly(transportation_monthly)
-fbc_data %>% numerical_distribution_annual(transportation_annual)
+figure_6_univariate_housing_a <- fbc_data %>% numerical_distribution_annual(housing_annual)
+figure_7_univariate_healthcare_m <- fbc_data %>% numerical_distribution_monthly(healthcare_monthly)
+
+figure_10_univariate_transportation_m <- fbc_data %>% numerical_distribution_monthly(transportation_monthly)
+figure_11_univariate_transportation_a <- fbc_data %>% numerical_distribution_annual(transportation_annual)
+
+fig_14_univariate_food_m <- fbc_data %>% numerical_distribution_monthly(food_monthly)
+fig_15_univariate_food_a <- fbc_data %>% numerical_distribution_annual(food_annual)
+
 # how does this compare for people who live or don't live in metropolitan 
 # areas, but also within that the south metros vs the north metros
 
-figure_6_univariate_housing_a <- fbc_data %>% numerical_distribution_annual(housing_annual)
-fbc_data %>% numerical_distribution_annual(taxes_annual)
-fbc_data %>% numerical_distribution_annual(childcare_annual)
-fbc_data %>% numerical_distribution_monthly(childcare_monthly)
-fbc_data %>% numerical_distribution_monthly(other_necessities_monthly)
-fbc_data %>% numerical_distribution_annual(other_necessities_annual)
-figure_7_univariate_healthcare_m <- fbc_data %>% numerical_distribution_monthly(healthcare_monthly)
+fig_16_univariate_taxes_a <- fbc_data %>% numerical_distribution_annual(taxes_annual)
+fig_17_univariate_taxes_m <- fbc_data %>% numerical_distribution_monthly(taxes_monthly)
+
+fig_18_univariate_childcare_a <- fbc_data %>% numerical_distribution_annual(childcare_annual)
+fig_19_univariate_childcare_m <- fbc_data %>% numerical_distribution_monthly(childcare_monthly)
+
+fig_20_univariate_other_necess_m <- fbc_data %>% numerical_distribution_monthly(other_necessities_monthly)
+fig_21_univariate_other_necess_a <- fbc_data %>% numerical_distribution_annual(other_necessities_annual)
+
 
 annual_combined_plots <- figure_3_univariate_healthcare_a /
-  figure_6_univariate_housing_a / figure_4_univarate_total_a
+  figure_6_univariate_housing_a / figure_4_univariate_total_a
 
 monthly_combined_plots <- figure_7_univariate_healthcare_m / 
-  figure_2_univariate_housing_m / figure_5_univarate_total_m
+  figure_2_univariate_housing_m / figure_5_univariate_total_m
+
+annual_combined_plots_2 <- figure_3_univariate_healthcare_a /
+  figure_6_univariate_housing_a / figure_11_univariate_transportation_a /
+figure_4_univariate_total_a
+
+monthly_combined_plots_2 <- figure_7_univariate_healthcare_m / 
+  figure_2_univariate_housing_m / figure_10_univariate_transportation_m /
+  figure_5_univariate_total_m
+
+annual_combined_plots_3 <- fig_15_univariate_food_a / fig_16_univariate_taxes_a /
+  fig_18_univariate_childcare_a / fig_21_univariate_other_necess_a
+
+monthly_combined_plots_3 <- fig_14_univariate_food_m / fig_17_univariate_taxes_m / fig_19_univariate_childcare_m / fig_20_univariate_other_necess_m
 
 
 ## saving plots 
@@ -130,10 +151,20 @@ ggsave("figures/univariate/figure-6.png", figure_6_univariate_housing_a)
 ggsave("figures/univariate/figure-7.png", figure_7_univariate_healthcare_m)
 ggsave("figures/univariate/figure-8.png", annual_combined_plots)
 ggsave("figures/univariate/figure-9.png", monthly_combined_plots)
-
-
-
-
+ggsave("figures/univariate/figure-10.png", figure_10_univariate_transportation_m)
+ggsave("figures/univariate/figure-11.png", figure_11_univariate_transportation_a)
+ggsave("figures/univariate/figure-12.png", annual_combined_plots_2)
+ggsave("figures/univariate/figure-13.png", monthly_combined_plots_2)
+ggsave("figures/univariate/figure-14.png", fig_14_univariate_food_m)
+ggsave("figures/univariate/figure-15.png", fig_15_univariate_food_a)
+ggsave("figures/univariate/figure-16.png", fig_16_univariate_taxes_a)
+ggsave("figures/univariate/figure-17.png", fig_17_univariate_taxes_m)
+ggsave("figures/univariate/figure-18.png", fig_18_univariate_childcare_a)
+ggsave("figures/univariate/figure-19.png", fig_19_univariate_childcare_m)
+ggsave("figures/univariate/figure-20.png", fig_20_univariate_other_necess_m)
+ggsave("figures/univariate/figure-21.png", fig_21_univariate_other_necess_a)
+ggsave("figures/univariate/figure-22.png", annual_combined_plots_3)
+ggsave("figures/univariate/figure-23.png", monthly_combined_plots_3)
 
 # Currently I am most interested in the healthcare annually, total annually, 
 # total monthly, food annually, food monthly, transportation monthly, 

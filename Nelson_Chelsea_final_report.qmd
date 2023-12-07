@@ -68,7 +68,7 @@ dataset for my own research, I added information on the geographical region in
 which each county is located based on their state 
 (south, midwest, northeast, and west) and added the minimum wage of each 
 pair of state and county. The former information was sourced from the USA 
-Census Website, and the latter was sourced from Paycom.com. See [References @sec-references] for additional information and citation on the Economic Policy Institute's dataset, as well as the extra information I obtain for the addition of my region and minimum wage variables. 
+Census Website, and the latter was sourced from Paycom.com. See [References](#sec-references) for additional information and citation on the Economic Policy Institute's dataset, as well as the extra information I obtain for the addition of my region and minimum wage variables. 
 
 In terms of the layout of my report, I will first discuss and provide an 
 overview and quality check of my data, being descriptive of how the data looks
@@ -92,14 +92,149 @@ data analyses as there are no underlying issues or problems.
 
 Welcome to the heart of my analysis – a comprehensive exploration of the EPI Family Budget dataset. In this section, we embark on a journey through the intricate layers of data, unraveling the complexities of cost-of-living variations across multiple different geographical facets in the United States.
 
-Before diving into our main questions, let's briefly revisit the insights gleaned from our preliminary analyses. Unraveling the individual and paired variables 
-that have provided us with a foundational understanding of the dataset's landscape. 
+Before diving into our main questions, let's briefly revisit the insights gleaned from our preliminary analyses. Unraveling the individual and paired variables that provided me with a foundational understanding of the dataset's landscape. 
+
+Additionally, I would like to preference that in this section, I have presented the most pivotal figures that encapsulate the core analyses driving my insights sand narrative. However, whiles these highlighted figures capture the essence of my findings, I acknowledge that a comprehensive view may be desired. Therefore, for the complete array of visuals generated during my explorations, including supplementary analyses and detailed breakdowns, please refer to [Appendix I](#sec-appendix) where a comprehensive collection of all figures not shown in this section will be displayed. 
 
 ### Univariate Analysis
 
 
+In terms of my univariate analysis, I looked at both the categorical and
+numerical variables, finding the most interesting statistics and figures
+within my analysis of the different numerical categories of expenses. 
+
+However before looking into my categories of expenses, I believe it is
+important to highlight the difference in the amount of nonmetro areas to
+metro areas in the dataset to gauge if this geographical difference will
+have any impact of how I view and analyze my findings in the future.
+
+![Looking at Metro Status of Counties](figures/univariate/figure-1.png){#fig-1}
+
+Above in @fig-1 we see that there are a lot more instances of counties
+being in nonmetropolitan areas than to that of metropolitan areas. I am
+interested to see how this will affects aspects such as transportation
+and healthcare as there are heavy implications on how being further from
+a metro area can cause for more travel to gain necessitate items
+sometimes as well as it seems that people who are further away from
+hospitals or don't have such as an abundance of hospitals to them as
+though in extremely urban and metro areas, might go to the hospital less
+often. So I am really excited to look more into these relationships.
+Additionally, from this we could then also compare metropolitan areas in
+the south to that of to the north and same with nonmetropolitan areas in
+each region to gauge if geographical region matters more than metro
+status or vice versa.
+
+Looking at the categories of expenses, I want to focus on and expand my
+research mostly on the total annual and monthly, transportation annual and monthly, healthcare annual and monthly, and housing annual and monthly costs. 
+For me these are the greatest variables in terms of finding differences between the counties on the micro and macro levels. Below I will be providing a brief explanation of the distribution of each expense at the national level, and I hope as I go further into my bivariate and mutlivariate analyses, I will
+expand on this to regional and state levels. A breakdown of the other categories of expenses is showcased [Appendix I - Univariate Analysis](#sec-appendix_univariate). (make a cross reference to the actual plots)
+
+![Looking at Annual Costs](figures/univariate/figure-12.png){#fig-2 width="697"} 
+
+-- add distribution of transportation here as well 
+
+Looking at @fig-2 we see that the distribution of healthcare annual costs has a
+extremely large spread in comparison to the other variables at the annual level.
+Within that plot, there is seems to be a symmetric unimodal or one
+could even said a mutlimodal shape with most average costs of healthcare on 
+the annual level being around $12000. However even outside of this average 
+value, there are still smaller significant subgroups consisting of average 
+healthcare costs being around $6000 and $20000. I feel that there are so many 
+potential reasons for this large spread in healthcare annual costs, that I 
+would love to look further into, such as family size and location, as well as
+how the minimum wage rate and median family income relate to these higher 
+costs in healthcare. Expanding on this we then can look at distribution of 
+annual housing cost and we see that there is a symmetric right-skewed 
+distribution as most people tend to spend around $12000 on housing annually. I 
+am surprised that there isn't a larger spread, as I know that housing in cities
+tend to be more expensive than housing in nonmetropolitan areas, thus I
+hope to see if I can actually find this distinction in my research. Lastly, in 
+terms of the annual variables, the distribution of annual total costs spent on
+a nationwide level has a bimodal and slightly right-skewed shape as on average
+most families spend around $60000 a year. Within this plot of total annual 
+expenses, we see that although we have our average value, there is a lot of 
+spread and variation away from this average that we most account for. I hope to
+do this by looking at how the total annual expenses change state by state, while 
+also perhaps seeing how the different expenses within the total are accounted
+for differently as well. 
+
+ -- need to add transportation to this univariate analysis 
+
+![Looking at Monthly Costs](figures/univariate/figure-13.png){#fig-3 width="697"}
+
+Turning our attention the distributions of the same variables above but now at 
+the monthly level, we see similar distributions trends to those in which I 
+pointed out before. For example, looking at the distribution of healthcare 
+costs monthly, we see lot of variability in the average expenses that 
+healthcare is monthly, alongside a mutlimodal slightly right-skewed shape, 
+with an average cost around $1200 a month. In terms of monthly housing expenses,
+the plot showcases that on average, families spend about $900 on housing, with 
+some special cases of families spending over $2000 a month, as our distribution
+produces a unimodal right-skewed shape. Lastly looking at total monthly 
+expenses, we also see a pretty large spread in the amount that family types 
+spend monthly at the national level, with the average being around $7000 and 
+shape in the distribution of unimodal and right-skewed. From each of theses
+distributions, I hope to go further and see why certain variables have such
+large distributions in comparison to others, as well as the relationship between
+each of these variables, alongside variables like metro status and region. 
+
+-- need to add transportation to this univariate analysis and then update my words to better fit everything as a whole
+
 ### Bivariate Analysis 
 
+As I made my move to bivariate analysis, I am still looking at the national
+level assessing to see now if there was any differences between the different 
+types of expenses, both at the monthly and annual levels, in relation with
+metro status, family type, and geographical region. Overall, I found that 
+for all three characteristics, the difference expenses did not seem to have
+much to any differences between them. Thus, I think that at a national level
+we can conclude that there is little to no difference between expenses in terms
+of metro status, family type, and geographical region, thus meaning that if 
+there are differences present they would be more visual at the regional, state,
+and county regions. Below, I have provided figures of the relationship between
+total expenses for both annually and monthly to that of family type, metro 
+status and geographical region to provide visual evidence to my claim.
+
+![Total Annual Expenses based on family type, metro status, and geographical region](figures/bivariate/figure-7_bi.png){#fig-4 width="697"}
+
+-- split up these plots, they look bad right now 
+
+![Total Monthly Expenses based on family type, metro status, and geographical region](figures/bivariate/figure-8_bi.png){#fig-5 width="697"}
+
+-- split up these plots, they look bad right now 
+
+Looking at each set of plots, we see that the only real different currently is 
+when we look at the different family types, the total expenses 
+(both annual and monthly) distributions move more and more to the left, 
+increasing. This makes senses as larger families tend to have more expenses. 
+Otherwise on the geographical and metro status levels, we see little to no 
+differences between total annual expenses. Thus moving the analysis more to the
+microlevel will help to find those currently hidden differences. 
+
+### divide this between the univariate analysis and bivariate analysis sections 
+to be able to showcase stuff
+
+So far, I have only look at these relationship on the national level. However,
+in terms of next steps moving to the regional and state level are next in 
+order to find more compelling results. 
+
+One of the main findings that I have found so far is that at the national level,
+there seems to be a lot of disparities in terms of how much people spend within
+their family types on healthcare, both at the annual and monthly levels. This 
+is surprising because compared to the other variables, healthcare had 
+increasingly more variation in its distribution bring attention to what could
+be the possible factors pertaining to this. Currently, I wonder if state policies 
+play into this as well as the type of insurances that people have. 
+Additionally, I wonder if this is a regional inconsistency or due to different
+metro status. These questions are ones I hope to expand on as I further my 
+analysis.
+
+Another main finding is that through my early bivariate analysis, I concluded
+that the national level is too broad to find differences between expenses 
+based on the categorical variables in which we relate them to. Thus to find 
+statistically significant evidence we have to look more at microlevels and then
+perhaps expand our findings to the macrolevel rather than looking at the macro
+and then basing the micro off of those nonexistent findings.
 
 Now, with this groundwork established, we can turn our attention to the core questions that drive my exploration:
 
@@ -142,10 +277,7 @@ Thus through answering these three esstenial questions, I was able to gain inter
 
 State conclusions or insights. Were you surprised by things you found or were they as expected? Why? This is a great place for future work, new research questions, and next steps.
 
-
-
-## References {.unnumbered #sec-references}
-fix my connection here
+## References {#sec-references}
 
   1. Economic Policy Institute (2022, March) Family Budget Map. [https://www.epi.org/resources/budget/budget-map/](https://www.epi.org/resources/budget/budget-map/)
 
@@ -154,6 +286,15 @@ fix my connection here
 
   3. Paycom (2023, October 2). Your 2023 Guide to Every State's Minimum Wage. [https://www.paycom.com/resources/blog/minimum-wage-rate-by-state/](https://www.paycom.com/resources/blog/minimum-wage-rate-by-state/) 
 
-## Appendix: Extra Explorations 
+## Appendix I: Extra Explorations {#sec-appendix}
 
 Useful in cases where there are an over-abundance of explorations and they are not useful in the main body of the report or they are uninteresting, but still think readers should have access to them for reference.
+
+### Univariate Analysis {#sec-appendix_univariate}
+
+![Looking at Annual Costs - Other Categories of Expenses](figures/univariate/figure-22.png){#fig-appendix_1 width="697"}
+
+
+![Looking at Monthly Costs - Other Categories of Expenses](figures/univariate/figure-23.png){#fig-appendix_2 width="697"}
+
+
