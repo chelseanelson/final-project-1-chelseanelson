@@ -1,5 +1,9 @@
 ## Question of Interest ----
-# How does the cost of living vary across different geographical regions?
+#How does the cost of living vary across different geographical facets and metro classifications? 
+
+# For myself: first look at the largest level so national, then regional, then the states in every region comparing them. followup question: Are there observable trends in transportation costs based on the availability and accessibility of public transportation in metro areas?
+  
+# Our first inquiry delves understanding how the geographical tapestry and metro classifications of different areas in America help to uncover the intricate variations in the cost of living. Thus through this question, I aim to unravel the economic nuances that define household budgets. 
 
 ### Follow-Up Questions -----
 # Are there notable disparities in housing, transportation, or 
@@ -237,35 +241,48 @@ ggsave("figures/multivariate/question1/question1_figure10.png", dist_of_spending
 
 # consistently healthcare seems to be the only areas where on average families who live in nonmetro areas seem to allocate more on their total expense to it than families in metro areas. 
 # I was especially suprised by the closeness in expenses for transportation
-# for metro and nonmetro areas. Especially for the metro northeast and metro midwest, as I feel they are known for having the best public transportation in the United States of America, thus thinking that families that live outside of those metro areas would pay a lot more as they have to have a car and pay for those associated expenses. In everyone other category, it is reasonable and makes sense to assume that families living in metro areas, regardless of size, will pay more than that of families in the nonmetro areas. However thinking on it now I find it interesting that the largest gap between transportation for the metro and nonmetro areas is when the families consist of no children, thus bringing light to how having children more often than not means that the parent is going to have to get a car, decreasing that space between the different allocation of transportation expenses. 
+# for metro and nonmetro areas. Especially for the metro northeast and metro midwest, as I feel they are known for having the best public transportation in the United States of America, thus thinking that families that live outside of those metro areas would pay a lot more as they have to have a car and pay for those associated expenses. In everyone other category, it is reasonable and makes sense to assume that families living in metro areas, regardless of size, will pay more than that of families in the nonmetro areas. However thinking on it now I find it interesting that the largest gap between transportation for the metro and nonmetro areas is when the families consist of no children, thus bringing light to how having children more often than not means that the parent is going to have to get a car, decreasing that space between the different allocation of transportation expenses.
+
+# function to compare median income to total annual expenses for each state 
+# divided at the region level
+# have to fix the function it is not working 
+median_income_total_annual_state <- function(region) {
+  
+  fbc_data %>% 
+    filter(state_abv == region) %>% 
+    summarise(
+      median_family_income = mean(median_family_income),
+      avg_total_annual = mean(total_annual),
+      .by = c(state_abv, family)
+    ) %>%
+    ggplot(aes(x = median_family_income, y = avg_total_annual)) +
+    geom_jitter(aes(color = state_abv), size = 2) +
+    labs(
+      title = sprintf("Comparison of Family Budget to Median Income For %sern States", str_to_title(region)),
+      x = "Median Family Income",
+      y = "Total Annual Family Budget",
+      color = "State"
+    ) +
+    facet_wrap(~family) + 
+    theme_light() + 
+    scale_x_continuous(labels = scales::comma)
+} 
+
+median_income_total_annual_state("TX")
+median_income_total_annual_state("midwest")
+median_income_total_annual_state("northeast")
+median_income_total_annual_state("south")
+
+
+
+
 
 ## Next Steps ----
 # Consider diving deeper into specific regions or states to understand localized factors influencing the cost of living.
 # Explore correlations between income levels, education, and cost of living to identify potential drivers of disparities.
 # Explore trends in both monthly and total values. You can observe how each category varies on a monthly basis compared to the overall total. Check if there are specific months where certain categories significantly deviate from their overall totals.
 
-correlation_matrix <- fbc_data %>% 
-  select(ends_with("_annual"),ends_with("_monthly"), minimum_wage, median_family_income, st_income_rank) %>% 
-  cor() 
 
-cor_names <- c(
-  "housing - annual", "food - annual", "transportation - annual", 
-  "healthcare - annual", "other necessities - annual", "childcare - annual", 
-  "taxes - annual", "total - annual", "housing - monthly", "food - monthly",
-  "transportation - monthly", "healthcare - monthly", 
-  "other necessities - monthly", "childcare - monthly", "taxes - monthly",
-  "total - monthly", "minimum wage", "median family income", 
-  "in-state income rank"
-)
-
-colnames(correlation_matrix) <- rownames(correlation_matrix) <- cor_names
-
-correlation_plot <- ggcorrplot(correlation_matrix, lab = TRUE, type = "lower") + 
-  labs(
-    title = "Cost of Living Correlations"
-  )
-
-ggsave("figures/bivariate/correlation-matrix.png", correlation_plot)
 
 
 ## Notable Disparities in Housing, Transportation, or Healthcare Costs Among Regions:

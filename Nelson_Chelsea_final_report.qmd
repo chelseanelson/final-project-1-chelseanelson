@@ -90,18 +90,63 @@ data analyses as there are no underlying issues or problems.
 
 ## Explorations 
 
-This is the heart or main body of the the report. The structure of this portion can look VERY different depending on narrative choices and organization choices made to guide readers through the project EDA. Could decide to make sections for major parts of the EDA and not used an Explorations header. The key is that you have sections that are clearly organized and guide the reader through a systematic and thoughtful exploration of the dataset(s).
+Welcome to the heart of my analysis – a comprehensive exploration of the EPI Family Budget dataset. In this section, we embark on a journey through the intricate layers of data, unraveling the complexities of cost-of-living variations across multiple different geographical facets in the United States.
 
-A thoughtful exploration weaves together prose, figures, and tables to help a reader build understanding. It is a guided tour that should have clear motivations for each step in the process (think guiding curiosities or research questions). It should be clear how things build of of each other and why we are looking at what is being presented. Should also be letting the reader know whether what is shown is as expected or is it surprising (maybe some of each).
+Before diving into our main questions, let's briefly revisit the insights gleaned from our preliminary analyses. Unraveling the individual and paired variables 
+that have provided us with a foundational understanding of the dataset's landscape. 
 
-You could imagine structuring this section around analysis type: univariate, bivariate, and multivariate. Can be a little harder to build a narrative with this structure. Could build sections that are dedicated to important variables: variable 1, variable 2, etc. In this case the sections would thoroughly explore the section’s variable through univariate, bivariate, and multivariate analyses. Alternatively, could build your sections around broad curiosities/research questions. Some of which probably inspired the project, and others that were developed through conducting the EDA.
+### Univariate Analysis
+
+
+### Bivariate Analysis 
+
+
+Now, with this groundwork established, we can turn our attention to the core questions that drive my exploration:
+
+### 1. How does the cost of living vary across different geographical facets and metro classifications? 
+
+For myself: first look at the largest level so national, then regional, then the
+states in every region comparing them. followup question: Are there observable trends in transportation costs based on the availability and accessibility of public transportation in metro areas?
+
+Our first inquiry delves understanding how the geographical tapestry and metro classifications of different areas in America help to uncover the intricate variations in the cost of living. Thus through this question, I aim to unravel
+the economic nuances that define household budgets. 
+
+To start my investigation for this question
+
+
+Say an intro sentence here:
+
+### 2. Are there discernible patterns or trends in budget allocation that stand
+out, considering family types and monthly expenses? 
+
+
+Building on the foundation of my previous analyses, I now shift focus more heavily on the allocation of expenses. Exploring patterns and trends in budget allocation, I aim to identify distinctive markers that stand out amidst the diverse financial landscape pertaining to the different family types and the 
+relationship between monthly and annual expenses. Thus, looking to see how 
+family size impacts budget allocation. And if there are specific categories 
+where larger families allocate a significantly higher percentage of their budget.
+
+For me: I will work on the heatmap and see how that looks. Again look from the 
+national, regional, and state levels. And then also I want to pick two states one
+being the best in a category and one being the worst and then look at how the counties compare for those two states as well. Follow-up question: What is the impact of the number of working adults in a family on budget allocation? Do dual-income families allocate their budgets differently compared to single-income families?
+
+intro statement:
+
+### 3. How does the minimum wage in different states correlate with the affordability of living, particularly in terms of housing, healthcare, and other essential expenses for various family types and regions?
+
+Lastly, I turned my focus to looking at a critical economic variable -- minimum wage. Through looking at minimum wages correlates to the cost of living, I aimed to shed light on how variations in minimum wage impact crucial aspects of family budgets, from housing and healthcare to other essential expenses. 
+
+
+Thus through answering these three esstenial questions, I was able to gain interesting insights on the following.....
 
 ## Conclusions 
 
 State conclusions or insights. Were you surprised by things you found or were they as expected? Why? This is a great place for future work, new research questions, and next steps.
 
-# fix my connection here
+
+
 ## References {.unnumbered #sec-references}
+fix my connection here
+
   1. Economic Policy Institute (2022, March) Family Budget Map. [https://www.epi.org/resources/budget/budget-map/](https://www.epi.org/resources/budget/budget-map/)
 
   2. U.S. Census Bureau (2021, October 8). Census Regions and Divisions of the United States. 
@@ -109,11 +154,6 @@ State conclusions or insights. Were you surprised by things you found or were th
 
   3. Paycom (2023, October 2). Your 2023 Guide to Every State's Minimum Wage. [https://www.paycom.com/resources/blog/minimum-wage-rate-by-state/](https://www.paycom.com/resources/blog/minimum-wage-rate-by-state/) 
 
-# will probably get rid of this 
-## Appendix: Technical Info
-
-A place to share complex and important technical steps that may highly impact explorations, but the details are too technical to share in main body of the report.
-
-### Appendix: Extra Explorations 
+## Appendix: Extra Explorations 
 
 Useful in cases where there are an over-abundance of explorations and they are not useful in the main body of the report or they are uninteresting, but still think readers should have access to them for reference.
