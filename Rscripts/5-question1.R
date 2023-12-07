@@ -89,8 +89,15 @@ fbc_data %>% filter(region == "west") %>%
   ) %>%
   pivot_longer(cols = -metro, 
                names_to = "budget_component", values_to = "cost") %>%
-  ggplot(aes(budget_component,cost)) + geom_col() + facet_grid(~metro) +
-  theme_light() + scale_x_discrete(labels = c("childcare","food", "healthcare","housing","other necessities","taxes","total","transportation")) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+  ggplot(aes(budget_component,cost)) + geom_col() + 
+  geom_text(aes(label=sprintf("$%.2f", cost)), size = 2, position=position_dodge(width=0.9), vjust=-0.25) + 
+  facet_grid(~metro, labeller = as_labeller(c("0" = "Nonmetro", "1" = "Metro")) +
+  theme_light() + scale_x_discrete(labels = c("childcare","food", "healthcare","housing","other necessities","taxes","total","transportation")) + 
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + 
+  labs(
+    title = "Distribution of Spending in the Nonmetro and Metro West",
+    x = "Budget Components",
+    y = "Average Cost")
 
 # we see here out of total spending housing is highest cost when living in a metro area with transportation being a close second, whereas when living in 
 # a nonmetro area transportation is the largest expense with healthcare and housing being close behind. This is interesting, because healthcare is not one of the high expenses when living in a metro area but is when living in a nonmetro area. Also when comparing the total annual expenses, the people who live a metro area spend around $1000 a year. This could also be because people in the nonmetro have larger families, so I would have to also look at this on the family levels as well. There is also more competition between plans in metro areas thus, making companies offer lower plans to get the most busy, this is uncommon in nonmetro areas. 
@@ -115,7 +122,13 @@ fbc_data %>% filter(region == "west") %>%
   facet_wrap(~family) +
   theme_light() + 
   scale_x_discrete(labels = c("childcare","food", "healthcare","housing","other necessities","taxes","total","transportation")) + 
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + 
+  labs(
+    title = "Distribution of Family Size Spending in the Nonmetro and Metro West",
+    x = "Budget Components",
+    y = "Cost",
+    fill = "Metro Classification") + 
+  scale_fill_discrete(labels = c("Nonmetro","Metro"))
 # even at the family level, people who live in the west nonmetro areas seem to on average spend more money on healthcare than that of people in the metro areas. Thus this probably pertains to..... (finish this statement)
 # Another interesting result that was found from this is that transporation is slightly allocated a little bit more of people's total expenses in the nonmetro areas than that of in the metro areas. This makes sense as there are buses and public transportation that is accessible in the metro areas that isn't in nonmetro areas, and that people in the west love to use cars still regardless. In all other aspects regardless of family size, people in metro areas seem to spend more money than people in nonmetro areas, which makes sense in terms of metro areas being relatively more expense than nonmetro areas for the most part in America.
 
@@ -139,25 +152,25 @@ select(ends_with("_annual"), metro) %>%
   pivot_longer(cols = -metro, 
                names_to = "budget_component", values_to = "cost") %>%
   ggplot(aes(budget_component,cost)) + 
+    geom_text(aes(label=sprintf("$%.2f", cost)), size = 2, position=position_dodge(width=0.9), vjust=-0.25) +
     geom_col() + 
     facet_grid(~metro, labeller = as_labeller(c("0" = "Nonmetro", "1" = "Metro"))) +
   theme_light() + 
-    scale_x_discrete(labels = c("childcare","food", "healthcare","housing","other necessities","taxes","total","transportation")) + theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
+    scale_x_discrete(labels = c("childcare","food", "healthcare","housing","other necessities","taxes","total","transportation")) + 
+    theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
     labs(
-      title = paste("Distribution of Spending in the Nonmetro and Metro",
+      title = "Distribution of Spending in the Nonmetro and Metro",
                 str_to_title(region)),
       x = "Budget Components",
-      y = "Cost")
+      y = "Average Cost")
 }
 distribution_of_spending_metro_region("south")
 distribution_of_spending_metro_region("northeast")
 distribution_of_spending_metro_region("midwest")
 # I want to get the amounts written above the bars 
 
-# explain what is occuring in these and write about it 
 
 # function to look at the nonmetro and metro of a region's different family types average distribution of spending in categories
-
 distribution_of_spending_family_region_metro <- function(region) {
   
   fbc_data %>% filter(region == region) %>%
