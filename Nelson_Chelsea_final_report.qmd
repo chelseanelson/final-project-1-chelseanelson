@@ -41,26 +41,52 @@ fbc_data <- read_rds("data/fbc_data.rds")
 
 ## Introduction
 
-Overview of the EDA. What was the motivation for this analysis? 
-What initial curiosities or research questions motivated you? 
-Describe the data source(s) you will use to build a predictive model. 
-If you are obtaining information from websites you should cite those in
-your References.
+In a comprehensive exploration of the EPI Family Budget dataset, this report delves into the intricate dynamics of cost of living variations across geographical regions, shedding light on the nuanced relationships between family budgets, income disparities, and metro classifications in the United States.
 
---> used for minimum wage : https://www.paycom.com/resources/blog/minimum-wage-rate-by-state/
+I was originally motivated to perform this analysis, as I think it is interesting and beneficial to understand and see how the cost of living differs not only on the level of state vs state, but also looking further into the issue by 
+seeing how cost of living differs by family size and county location. Additionally, I think this would be an opportunity to learn how incomes levels 
+and expenses in each county and state differ from each other,starting to understand why these differences are present. I further think that by looking additionally at minimum wage in each state, I think that 
+the analysis I conducted will bring attention to a lot of the inequity 
+present in the United States of America. 
 
---> used for regions :
-https://www2.census.gov/geo/pdfs/maps-data/maps/reference/us_regdiv.pdf
+In terms of initial curiosities while conducting early research on this data,
+I was interested in looking at how a median family income for each county then correlates to the total annual expenses on the state, regional, and metro levels.
+Furthermore, to then see if there are any patterns or trends in budget allocation
+that stand out or are different from others on multiple levels, such as the county, metro, state, and regional levels. Moving from looking at annual to monthly numbers, I was interested in seeing if there is any change between the 
+two calculations, and if so, how that changes the overall cost of living in the different areas of interest that I have presently stated. Through having these
+starting curiosities, I was able to conduct a full exploration of the data that
+focused on comparisons and correlations to help bring insight into how different
+categories of expenses are valued and allocated in relation to the total
+expenses and cost of living in different geographical locations. 
+
+As stated above I will be using the Economic Policy Institute's data on family budget, which also then corresponding to telling us about the cost of living in
+each county in America. This dataset provides insights into the average
+economical weights and costs of different aspects of life for each county in
+America both annually and monthly, whiles dividing these averages further by 
+also looking at the different family types as well, ranging from 1 parent and no children families to 2 parent 4 children families. In order to enhance the 
+dataset for my own research, I added information on the geographical region in
+which each county is located based on their state 
+(south, midwest, northeast, and west) and added the minimum wage of each 
+pair of state and county. The former information was sourced from the USA 
+Census Website, and the latter was sourced from Paycom.com. See [References @sec-references] for additional information and citation on the Economic Policy Institute's dataset, as well as the extra information I obtain for the addition of my region and minimum wage variables. 
+
+In terms of the layout of my report, I will first discuss and provide an 
+overview and quality check of my data, being descriptive of how the data looks
+and how I formatted it in the best way for my own research. I will then start
+my main explorations, where I will discuss on early univariate and bivariate a
+analyses in which I conducted, and then turn the attention towards three separate main questions that constructed and established the flow of my exploratory data analysis. Lastly, I will conclude with a summary of the main insights that I 
+have founded throughout my research, as well as discussing potential directions 
+that the analyses in which I conducted can be taken to the next level. 
 
 ## Data Overview & Quality 
 
-A concise high level overview of the dataset(s) being explored. 
-Description of the dataset(s) that covers basics: size, number of 
-observations, number, of variables, variable types, and discussion of 
-any quality issues (especially missingness and how it may impact the analysis).
-Highlight any important data collection issues or concerns. 
-If over-technical, but important, then place technical details in Appendix: 
-technical info.
+The FBI Family Budget dataset in its original state consisted of 27 variables 
+and 31,430 observations. Within this, there were twenty-three numerical variables and four categorical variables. However, I did add my own minimum wage and regional variables, as well as the changed the variable type of the family type and metropolitan status variables. Additionally, I made sure that I tackled 
+how I was going to work around the missingness that was in my dataset. Therefore, after further investigation, I realized that all of the missing values for my variables corresponded to one specific county and its multiple different family cases. Thus in this case, I decided it would be best to fully remove the observations of that particular county from my dataset, as I felt leaving it in would case more problems in terms of furthering my analysis than taking it
+out. Thus my updated version of the dataset includes 29 variables with 
+31,420 observations. Within this, there are six categorical variables and 
+twenty-three numerical variables. Thus after my manipulation, the dataset is of high quality, being extremely well-made and will be easy to use during my 
+data analyses as there are no underlying issues or problems. 
 
 ## Explorations 
 
@@ -74,10 +100,16 @@ You could imagine structuring this section around analysis type: univariate, biv
 
 State conclusions or insights. Were you surprised by things you found or were they as expected? Why? This is a great place for future work, new research questions, and next steps.
 
-## References 
+# fix my connection here
+## References {.unnumbered #sec-references}
+  1. Economic Policy Institute (2022, March) Family Budget Map. [https://www.epi.org/resources/budget/budget-map/](https://www.epi.org/resources/budget/budget-map/)
 
-Any references used should be sited here. This includes but is not limited to where you got your data. There is no “formal” reference guideline but we recommend APA format. Example: Lastname, F. M. (Year, Month Date). Title of page. Site name. URL
+  2. U.S. Census Bureau (2021, October 8). Census Regions and Divisions of the United States. 
+[https://www2.census.gov/geo/pdfs/maps-data/maps/reference/us_regdiv.pdf](https://www2.census.gov/geo/pdfs/maps-data/maps/reference/us_regdiv.pdf)
 
+  3. Paycom (2023, October 2). Your 2023 Guide to Every State's Minimum Wage. [https://www.paycom.com/resources/blog/minimum-wage-rate-by-state/](https://www.paycom.com/resources/blog/minimum-wage-rate-by-state/) 
+
+# will probably get rid of this 
 ## Appendix: Technical Info
 
 A place to share complex and important technical steps that may highly impact explorations, but the details are too technical to share in main body of the report.
