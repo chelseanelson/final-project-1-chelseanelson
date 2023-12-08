@@ -258,9 +258,9 @@ median_income_total_annual_state <- function(region_name) {
     ggplot(aes(x = median_family_income, y = avg_total_annual)) +
     geom_jitter(aes(color = state_abv), size = 2) +
     labs(
-      title = sprintf("Comparison of Family Budget to Median Income For %sern States", str_to_title(region_name)),
+      title = sprintf("Comparison of Median Income to Cost of Living For %sern States", str_to_title(region_name)),
       x = "Median Family Income",
-      y = "Total Annual Family Budget",
+      y = "Average Cost of Living",
       color = "State"
     ) +
     facet_wrap(~family) + 
@@ -279,33 +279,10 @@ ggsave("figures/multivariate/question1/question1_figure12.png", median_income_to
 ggsave("figures/multivariate/question1/question1_figure13.png", median_income_total_state_northeast)
 ggsave("figures/multivariate/question1/question1_figure14.png", median_income_total_state_midwest)
 
-
-
-
-
-
 ## Next Steps ----
 # Consider diving deeper into specific regions or states to understand localized factors influencing the cost of living.
 # Explore correlations between income levels, education, and cost of living to identify potential drivers of disparities.
 # Explore trends in both monthly and total values. You can observe how each category varies on a monthly basis compared to the overall total. Check if there are specific months where certain categories significantly deviate from their overall totals.
-
-
-
-
-## Notable Disparities in Housing, Transportation, or Healthcare Costs Among Regions:
-# Use box plots or violin plots to visually compare the distributions of housing, transportation, and healthcare costs among different regions.
-# Calculate summary statistics (mean, median, standard deviation) for each region in these specific categories.
-# Conduct hypothesis testing (e.g., t-tests or ANOVA) to determine if there are statistically significant differences in costs among regions.
-
-## Interaction of Metro Classification with Family Types, Minimum Wage, and Total Cost Rank:
-# Utilize multiple facets in your visualizations to explore how metro classification interacts with family types. For example, use facets for different family sizes.
-# Create scatter plots or line plots to examine the relationship between minimum wage and total cost rank, considering metro and non-metro areas separately.
-# Conduct regression analyses to quantify the impact of family types, minimum wage, and total cost rank on the metro classification.
-
-## Correlation of Income Disparities with Average Cost of Living:
-# Generate correlation matrices or heatmaps to visualize the relationships between income disparities within regions and metro classifications with the average cost of living.
-# Use scatter plots to explore the correlation between median family income and average cost of living for different regions and metro classifications.
-# Apply statistical methods such as correlation coefficients to quantify the strength and direction of relationships.
 
 
 

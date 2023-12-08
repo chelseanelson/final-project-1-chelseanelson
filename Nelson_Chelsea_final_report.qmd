@@ -255,39 +255,46 @@ After observing and gaining insights on how cost of living differs in different 
 
 Looking at @fig-16 through @fig-19 I feel observations that really jumped out to me was that transporation is slightly allocated a little bit more of families' total expenses in the nonmetro areas than that of in the metro areas. This makes sense as there are buses and other forms of public transportation that are accessible in  metro areas that aren't in nonmetro areas, while also knowing that people regardless of location, if they can, love the ability to have a car and drive.  In all other aspects regardless of family size, people in metro areas seem to spend more money than people in nonmetro areas, which makes sense in terms of metro areas being relatively more expense than nonmetro areas for the most part in America. I was especially suprised by the closeness in the expenses for transportation for metro and nonmetro areas. Especially for the metro Northeast and metro Midwest, as I feel they are known for having the best public transportation in the United States, thus thinking that families that live outside of those metro areas would pay a lot more as they have to have a car and pay for those associated expenses. However after further investigate and understanding I find it interesting that the largest gap between transportation for the metro and nonmetro areas is when the families consist of no children, thus bringing light to how having children more often than not means that the parent is going to have to get a car, decreasing that space between the different allocation of transportation expenses between metro and nonmetro areas.
 
-Another interestingly highlight that I spoke on before shortly is that
-
-In everyone other category, it is reasonable and makes sense to assume that families living in metro areas, regardless of size, will pay more than that of families in the nonmetro areas.
-
-# even at the family level, people who live in the west nonmetro areas seem to on average spend more money on healthcare than that of people in the metro areas. Thus this probably pertains to..... (finish this statement)
-
-
-In all other aspects regardless of family size, people in metro areas seem to spend more money than people in nonmetro areas, which makes sense in terms of metro areas being relatively more expense than nonmetro areas for the most part in America.
-
-
-# consistently healthcare seems to be the only areas where on average families who live in nonmetro areas seem to allocate more on their total expense to it than families in metro areas. 
-# I was especially suprised by the closeness in expenses for transportation
-# for metro and nonmetro areas. Especially for the metro northeast and metro midwest, as I feel they are known for having the best public transportation in the United States of America, thus thinking that families that live outside of those metro areas would pay a lot more as they have to have a car and pay for those associated expenses. In everyone other category, it is reasonable and makes sense to assume that families living in metro areas, regardless of size, will pay more than that of families in the nonmetro areas. However thinking on it now I find it interesting that the largest gap between transportation for the metro and nonmetro areas is when the families consist of no children, thus bringing light to how having children more often than not means that the parent is going to have to get a car, decreasing that space between the different allocation of transportation expenses.
+Another interestingly highlight that I spoke on before shortly is that consistently healthcare seems to be the only areas where on average families who live in nonmetro areas seem to allocate more of their total expense to it than families in metro areas.
+Knowing that this trend exists across the border in the United States at least at the regional level, bring attention to perhaps the finance and economical, and political disparities and differences between living in the two areas. However, as expected in every other category, regardless of family size, families who live in metro areas on average pay more than that of families in nonmetro areas. This is a reasonable assumption because metro areas often have higher cost of living due to increased demands for housing, services, and amenities, as well as there is limited space in urban environment usually compared to nonmetro areas. Additionally, most metro areas have higher taxes. Thus, I feel that to obtain more insights on hidden differences, I would have to go towards the state and county levels. 
 
 Lastly in terms of my exploration for this question I turned towards looking at
-......
+comparing median income to total annual expenses for each state 
+divided at the region level, being able to compare each state to other states in its region to see if they actually share similar properties at this marcolevel. Thus seeing how the state separately compared to our results found in @fig-11.
 
 
-Thus through this exploration, I was able to gain insights into how cost of living differs across geographical, metro classification, and even state lines. With the most interesting insights for me pertaining to.....
+![Median Income to Cost of Living for Western States](figures/multivariate/question1/question1_figure11.png){#fig-20 width="697"}
 
-Upon concluding our exploration of the first question, we now shift our focus to looking at some of the intriguing avenues uncovered, delving deeper into the nuances with the second question.
+![Median Income to Cost of Living for Southern States](figures/multivariate/question1/question1_figure12.png){#fig-21 width="697"}
 
-### 2. Are there discernible patterns or trends in budget allocation that stand
-out, considering family types and monthly expenses? 
+![Median Income to Cost of Living for Northeastern States](figures/multivariate/question1/question1_figure13.png){#fig-22 width="697"}
 
-Building on the foundation of my previous analyses, I now shift focus more heavily on the allocation of expenses. Exploring patterns and trends in budget allocation, I aim to identify distinctive markers that stand out amidst the diverse financial landscape pertaining to the different family types and the 
-relationship between monthly and annual expenses. Thus, looking to see how 
-family size impacts budget allocation. And if there are specific categories 
-where larger families allocate a significantly higher percentage of their budget.
+![Median Income to Cost of Living for Midwestern States](figures/multivariate/question1/question1_figure14.png){#fig-23 width="697"}
 
-For me: I will work on the heatmap and see how that looks. Again look from the 
-national, regional, and state levels. And then also I want to pick two states one
-being the best in a category and one being the worst and then look at how the counties compare for those two states as well. Follow-up question: What is the impact of the number of working adults in a family on budget allocation? Do dual-income families allocate their budgets differently compared to single-income families?
+Looking at the Western states in @fig-20, we see that obviously as the amount 
+of people the family increases, the average cost of living increases as well. 
+However, this is not turn for the median family income, that is a overarching 
+variable in my dataset. Thus for Western states, we can conclude that income disparities start to appear when families have 4 or more people, as the median family income becomes lesser than the average cost of living. Another interesting observation from this data set is related to the cost of living in Hawaii being so much more than that of in the other states in the West, thus perhaps this play a matter in skewing some of the allocation of expenses when we were looking at those figures before. 
+
+In @fig-21, again we see that income disparities start to appear around when families have 4 or more people, as the median family income becomes lesser than the average cost of living. Again there seems to lies another outlier state, with this time it being DC. 
+
+Looking at the Northeastern states in @fig-22, we see that unlike for Western and Southern states, from this level income disparities only seem to concern when families have 5 or more people in them, with the median family income becoming lesser than the average cost of living. Interestingly, New Hampshire acts as a middle man between a cluster of states that exhibit lower median family incomes and another cluster that exhibits extremely high median family incomes. I woud love to see what makes New Hamsphire state out in this region of states, while also looking to see why these distinctions and separations are occuring.
+
+Lastly in @fig-23, interestingly income disparities start to appear around when families have 3 or more people, as the median family income becomes lesser than the average cost of living. Thus occuring earlier than any of the other regions at this state level view. Additionally, unlike for Western and Southern states, there does not seem to be an outlier in the Midwestern states, all consisting our the same level of average cost of living, however with different median family incomes. 
+
+Thus through this exploration, I was able to gain insights into how cost of living differs across geographical, metro classification, and even state lines. With the most interesting insights for me pertaining to how family size impacts the allocation of expenses, while also revealing intriguing patterns in transportation and healthcare expenditures. The variations in income disparities across different regions and metro classifications shed light on the complex economic landscape, showcasing where families struggle and thrive financially. Further investigations into the outliers and clusters within states contribute would help to gain a deeper understanding of the nuanced factors influencing the cost of living. As we transition to the next question, these insights pave the way for uncovering more intricate details about budget allocations, patterns, and economic disparities.
+
+### 2. Are there discernible patterns or trends in budget allocation that stand out, considering family types and minmum wage? 
+
+Building on the foundation of my previous analyses, I now shift focus more heavily on the allocation of expenses. Exploring patterns and trends in budget allocation, I aim to identify distinctive markers that stand out amidst the diverse financial landscape pertaining to the different family types and the relationship between annual expenses and minimum wage. Thus, looking to see how family size impacts budget allocation. And if there are specific categories where larger families allocate a significantly higher percentage of their budget.
+
+I will first start my analysis at the national level looking towards then how these core ideas of how budget is allocated are taken apart and changed as I move my analysis into more mircolevels. 
+
+![Total Annual Expenses Based on Region and Family Type](figures/multivariate/question2/question2_figure1.png){#fig-24 width="697"}
+
+![Budget Heatmap Allocation](figures/multivariate/question2/question2_figure2.png){#fig-25}
+![put the combined plots here ](figures/multivariate/question2/question2_figure3.png){#fig-26}
+
 
 Thus through answering these two esstenial questions, I was able to gain interesting insights on the following.....
 
