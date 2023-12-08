@@ -154,8 +154,8 @@ ggsave("figures/multivariate/question1/question1_figure4.png", dist_of_spending_
 # I will be turning the two plots I made just now into functions to be used for all regions. 
 
 # function to look at the nonmetro and metro of a region's average distribution of spending in categories
-distribution_of_spending_metro_region <- function(region) {
-fbc_data %>% filter(region == region) %>%
+distribution_of_spending_metro_region <- function(region_name) {
+fbc_data %>% filter(region == region_name) %>%
 select(ends_with("_annual"), metro) %>% 
   summarise(
     avg_housing_annual = mean(housing_annual),
@@ -180,7 +180,7 @@ select(ends_with("_annual"), metro) %>%
     theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
     labs(
       title = paste("Distribution of Spending in the Nonmetro and Metro",
-                str_to_title(region)),
+                str_to_title(region_name)),
       x = "Budget Components",
       y = "Average Expense")
 }
@@ -198,9 +198,9 @@ ggsave("figures/multivariate/question1/question1_figure7.png", distribution_of_s
 
 
 # function to look at the nonmetro and metro of a region's different family types average distribution of spending in categories
-distribution_of_spending_family_region_metro <- function(region) {
+distribution_of_spending_family_region_metro <- function(region_name) {
   
-  fbc_data %>% filter(region == region) %>%
+  fbc_data %>% filter(region == region_name) %>%
   select(ends_with("_annual"), metro,family) %>% 
   summarise(
     avg_housing_annual = mean(housing_annual),
@@ -223,7 +223,7 @@ distribution_of_spending_family_region_metro <- function(region) {
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +
     labs(
       title = paste("Distribution of Family Size Spending in the Nonmetro and Metro",
-                    str_to_title(region)),
+                    str_to_title(region_name)),
       x = "Budget Components",
       y = "Average Expense",
       fill = "Metro Classification") + 
@@ -246,10 +246,10 @@ ggsave("figures/multivariate/question1/question1_figure10.png", dist_of_spending
 # function to compare median income to total annual expenses for each state 
 # divided at the region level
 # have to fix the function it is not working 
-median_income_total_annual_state <- function(region) {
+median_income_total_annual_state <- function(region_name) {
   
   fbc_data %>% 
-    filter(state_abv == region) %>% 
+    filter(region == region_name) %>% 
     summarise(
       median_family_income = mean(median_family_income),
       avg_total_annual = mean(total_annual),
@@ -258,20 +258,27 @@ median_income_total_annual_state <- function(region) {
     ggplot(aes(x = median_family_income, y = avg_total_annual)) +
     geom_jitter(aes(color = state_abv), size = 2) +
     labs(
-      title = sprintf("Comparison of Family Budget to Median Income For %sern States", str_to_title(region)),
+      title = sprintf("Comparison of Family Budget to Median Income For %sern States", str_to_title(region_name)),
       x = "Median Family Income",
       y = "Total Annual Family Budget",
       color = "State"
     ) +
     facet_wrap(~family) + 
     theme_light() + 
-    scale_x_continuous(labels = scales::comma)
+    scale_x_continuous(labels = scales::comma) + 
+    scale_y_continuous(labels = scales::comma)
 } 
 
-median_income_total_annual_state("TX")
-median_income_total_annual_state("midwest")
-median_income_total_annual_state("northeast")
-median_income_total_annual_state("south")
+median_income_total_state_west <- median_income_total_annual_state("west")
+median_income_total_state_south <- median_income_total_annual_state("south")
+median_income_total_state_northeast <- median_income_total_annual_state("northeast")
+median_income_total_state_midwest <- median_income_total_annual_state("midwest")
+
+ggsave("figures/multivariate/question1/question1_figure11.png", median_income_total_state_west)
+ggsave("figures/multivariate/question1/question1_figure12.png", median_income_total_state_south)
+ggsave("figures/multivariate/question1/question1_figure13.png", median_income_total_state_northeast)
+ggsave("figures/multivariate/question1/question1_figure14.png", median_income_total_state_midwest)
+
 
 
 
