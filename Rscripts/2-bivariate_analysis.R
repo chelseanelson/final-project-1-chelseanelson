@@ -9,8 +9,8 @@ numerical_family_type <- function(numerical_var) {
     facet_wrap(~family) + 
     labs(
       title = paste("Distribution of", 
-                    str_replace_all(quo_name(ensym(numerical_var)), "_", " "), 
-                    "costs based on family type"),
+                    str_to_title(str_replace_all(quo_name(ensym(numerical_var)), "_", " ")), 
+                    "Costs Based on Family Type"),
       x = paste(str_to_title(
         str_replace_all(quo_name(ensym(numerical_var)), "_", " ")), "Costs"),
       y = "Count"
@@ -28,8 +28,8 @@ numerical_metro <- function(numerical_var) {
                  metro = c("0" = "Nonmetro Areas", "1" = "Metro Areas"))) +
     labs(
       title = paste("Distribution of", 
-                    str_replace_all(quo_name(ensym(numerical_var)), "_", " "), 
-                    "costs for metros vs. nonmetros"),
+                    str_to_title(str_replace_all(quo_name(ensym(numerical_var)), "_", " ")), 
+                    "Costs Based on Metro Classification"),
       x = paste(str_to_title(
         str_replace_all(quo_name(ensym(numerical_var)), "_", " ")), "Costs"),
       y = "Count"
@@ -42,11 +42,13 @@ numerical_regional <- function(numerical_var) {
   
   fbc_data %>% 
     ggplot(aes({{ numerical_var }})) + geom_histogram(color = "white") + 
-    facet_wrap(~region) +
+    facet_wrap(~region,
+               labeller = labeller(
+                 region = c("south" = "South", "west" = "West", "northeast" = "Northeast", "midwest" = "Midwest"))) +
     labs(
       title = paste("Distribution of", 
-                    str_replace_all(quo_name(ensym(numerical_var)), "_", " "), 
-                    "costs based on geographical region"),
+                    str_to_title(str_replace_all(quo_name(ensym(numerical_var)), "_", " ")), 
+                    "Costs Based on Geographical Region"),
       x = paste(str_to_title(
         str_replace_all(quo_name(ensym(numerical_var)), "_", " ")), "Costs"),
       y = "Count"
@@ -58,34 +60,53 @@ numerical_regional <- function(numerical_var) {
 # Family Type ----
 
 figure_1_bivariate_family_total_a <- numerical_family_type(total_annual)
-numerical_family_type(healthcare_annual)
-numerical_family_type(food_annual)
 figure_2_bivariate_family_total_m <- numerical_family_type(total_monthly)
-numerical_family_type(food_monthly)
-numerical_family_type(transportation_monthly)
+
+figure_3_bivariate_family_healthcare_a <- numerical_family_type(healthcare_annual)
+figure_4_bivariate_family_healthcare_m <- numerical_family_type(healthcare_monthly)
+
+figure_5_bivariate_family_transportation_m <- numerical_family_type(transportation_monthly)
 # interesting that transportation is pretty similar across the board is this 
 # because a lot of people have cars 
-numerical_family_type(transportation_annual)
-# same with transportation annually it is pretty similar across the board 
+figure_6_bivariate_family_transportation_a <- numerical_family_type(transportation_annual)
+# same with transportation annually it is pretty similar across the board
+
+figure_7_bivariate_family_housing_a <- numerical_family_type(housing_annual)
+figure_8_bivariate_family_housing_m <- numerical_family_type(housing_monthly)
+
+numerical_family_type(food_annual)
+numerical_family_type(food_monthly)
 numerical_family_type(childcare_annual)
 numerical_family_type(childcare_monthly)
 # the average cost of childcare is also pretty similar across the board as well
 # on both the annual and monthly levels
-numerical_family_type(healthcare_monthly)
+numerical_family_type(other_necessities_monthly)
+numerical_family_type(other_necessities_annual)
+numerical_family_type(taxes_annual)
+numerical_family_type(taxes_monthly)
 
 # Metropolitan -----
 
-figure_3_bivariate_metro_total_a  <- numerical_metro(total_annual)
-numerical_metro(healthcare_annual)
+figure_9_bivariate_metro_total_a  <- numerical_metro(total_annual)
+figure_10_bivariate_metro_total_m <- numerical_metro(total_monthly)
+
+figure_11_bivariate_metro_healthcare_a <- numerical_metro(healthcare_annual)
+figure_12_bivariate_metro_healthcare_m <- numerical_metro(healthcare_monthly)
+
+figure_13_bivariate_metro_transportation_a <- numerical_metro(transportation_annual)
+figure_14_bivariate_metro_transportation_m <- numerical_metro(transportation_monthly)
+
+figure_15_bivariate_metro_housing_a <- numerical_metro(housing_annual)
+figure_16_bivariate_metro_housing_m <- numerical_metro(housing_monthly)
+
 numerical_metro(food_annual)
-figure_4_bivariate_metro_total_m <- numerical_metro(total_monthly)
 numerical_metro(food_monthly)
-numerical_metro(transportation_monthly)
-numerical_metro(transportation_annual)
 numerical_metro(childcare_annual)
 numerical_metro(childcare_monthly)
-numerical_metro(healthcare_monthly)
-
+numerical_metro(other_necessities_annual)
+numerical_metro(other_necessities_monthly)
+numerical_metro(taxes_annual)
+numerical_metro(taxes_monthly)
 
 # It is interesting that on the nation level there is not a big different 
 # between counties that are and aren't in a metropolitan area in terms of the 
@@ -93,23 +114,28 @@ numerical_metro(healthcare_monthly)
 
 # Regional ----
 
-figure_5_bivariate_regional_total_a <- numerical_regional(total_annual)
+figure_17_bivariate_regional_total_a <- numerical_regional(total_annual)
+figure_18_bivariate_regional_total_m <- numerical_regional(total_monthly)
+
 numerical_regional(healthcare_annual)
-numerical_regional(food_annual)
-figure_6_bivariate_regional_total_m <- numerical_regional(total_monthly)
-numerical_regional(food_monthly)
-numerical_regional(transportation_monthly)
+numerical_regional(healthcare_monthly)
+
 numerical_regional(transportation_annual)
+numerical_regional(transportation_monthly)
+
+numerical_regional(housing_annual)
+numerical_regional(housing_monthly)
+
+numerical_regional(food_annual)
+numerical_regional(food_monthly)
 numerical_regional(childcare_annual)
 numerical_regional(childcare_monthly)
 numerical_regional(healthcare_monthly)
 
 
-total_annual_combined_plots_bi <- figure_1_bivariate_family_total_a /
-  figure_3_bivariate_metro_total_a / figure_5_bivariate_regional_total_a
+total_annual_combined_plots_bi <- figure_3_bivariate_metro_total_a / figure_5_bivariate_regional_total_a
 
-total_monthly_combined_plots_bi <- figure_2_bivariate_family_total_m /
-  figure_4_bivariate_metro_total_m / figure_6_bivariate_regional_total_m
+total_monthly_combined_plots_bi <- figure_4_bivariate_metro_total_m / figure_6_bivariate_regional_total_m
 
 
 
