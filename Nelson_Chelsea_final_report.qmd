@@ -107,7 +107,7 @@ important to highlight the difference in the amount of nonmetro areas to
 metro areas in the dataset to gauge if this geographical difference will
 have any impact of how I view and analyze my findings in the future.
 
-![Looking at Metro Status of Counties](figures/univariate/figure-1.png){#fig-1}
+![Metro Status of Counties](figures/univariate/figure-1.png){#fig-1}
 
 Above in @fig-1 we see that there are a lot more instances of counties
 being in nonmetropolitan areas than to that of metropolitan areas. I am
@@ -125,7 +125,7 @@ status or vice versa.
 
 Looking at the categories of expenses, I originally wanted to focus on and expand my research mostly on the total annual and monthly, transportation annual and monthly, healthcare annual and monthly, and housing annual and monthly costs. Below I have provided a brief explanation of the distribution of each expense at the national level. A breakdown of the other categories of expenses is can be founded in [Appendix I - Univariate Analysis](#sec-appendix_univariate).
 
-![Looking at Annual Costs](figures/univariate/figure-12.png){#fig-2 width="697"} 
+![Annual Costs](figures/univariate/figure-12.png){#fig-2 width="697"} 
 
 In @fig-2 we see that the distribution of healthcare annual expenses has a
 extremely large spread in comparison to the other variables at the annual level.
@@ -138,7 +138,7 @@ a nationwide level has a bimodal and slightly right-skewed shape as on average
 most families spend around $60000 a year. Within this plot of total annual 
 expenses, we expect to and see that although we have our average value, there is a lot of spread and variation away from this average that we most account for, relating to state and regional differences.
 
-![Looking at Monthly Costs](figures/univariate/figure-13.png){#fig-3 width="697"}
+![Monthly Costs](figures/univariate/figure-13.png){#fig-3 width="697"}
 
 Turning our attention the distributions of the same variables above but now at 
 the monthly level, we see as expected similar distributions trends to those in which I pointed out before. For example, looking at the distribution of healthcare costs monthly, we see lot of variability in the average expenses that healthcare is monthly, alongside a mutlimodal slightly right-skewed shape, 
@@ -154,7 +154,10 @@ might occur.
 
 -- change this whole entire thing, sounds bad and not coherent
 
-As I made my move to bivariate analysis, I am still looking at the national
+As I made my move to conducting my bivariate analysis, 
+
+
+I am still looking at the national
 level assessing to see now if there was any differences between the different 
 types of expenses, both at the monthly and annual levels, in relation with
 metro status, family type, and geographical region. Overall, I found that 
@@ -167,16 +170,21 @@ and county regions. Below, I have provided figures of the relationship between
 total expenses for both annually and monthly to that of family type, metro 
 status and geographical region to provide visual evidence to my claim.
 
-![Total Annual Expenses based on family type, metro status, and geographical region](figures/bivariate/figure-7_bi.png){#fig-4 width="697"}
+![National-Level Correlation Matrix ](figures/bivariate/correlation-matrix_national.png){#fig-4}
 
--- split up these plots, they look bad right now 
+talk the talk
 
-![Total Monthly Expenses based on family type, metro status, and geographical region](figures/bivariate/figure-8_bi.png){#fig-5 width="697"}
+![Median Family Income vs. Total Annual (Cost of Living)](figures/bivariate/median_family_total_annual.png){#fig-5}
+talk the talk
 
--- split up these plots, they look bad right now 
+intro to talking about total annual and monthly expenses at the three different levels and how people can see visualizations of the other main categories in my exploration thus far (transportation, housing, healthcare) in [Appendix I - Bivariate Analysis](#sec-appendix_bivariate)
 
--- add in correlation plot 
 
+![Total Annual Expenses Based on Family Type](figures/bivariate/figure-1_bi.png){#fig-6 width="697"}
+![Total Annual Expenses Based on Metro Classification and Geographical Region](figures/bivariate/figure-25_bi.png){#fig-7 width="697"}
+![Total Monthly Expenses Based on Family Type](figures/bivariate/figure-2_bi.png){#fig-8 width="697"}
+
+![Total Monthly Expenses Based on Metro Classification and Geographical Region](figures/bivariate/figure-25_bi.png){#fig-9 width="697"}
 Looking at each set of plots, we see that the only real different currently is 
 when we look at the different family types, the total expenses 
 (both annual and monthly) distributions move more and more to the left, 
@@ -262,8 +270,10 @@ Useful in cases where there are an over-abundance of explorations and they are n
 ### Univariate Analysis {#sec-appendix_univariate}
 
 ![Looking at Annual Costs - Other Categories of Expenses](figures/univariate/figure-22.png){#fig-appendix_1 width="697"}
-
+talk the talk
 
 ![Looking at Monthly Costs - Other Categories of Expenses](figures/univariate/figure-23.png){#fig-appendix_2 width="697"}
 
+talk the talk 
 
+### Bivariate Analysis {#sec-appendix_bivariate}
