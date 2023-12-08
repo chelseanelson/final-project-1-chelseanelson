@@ -1,0 +1,30 @@
+column_variable,description
+case_id,Used to uniquely identify observations
+state_abv,Two letter state abbreviation
+metro,"Indicates whether or not a county is in a metro area, 0 = nonmetro, 1 = metro"
+areaname,Name of metro area county is in (if applicable)
+county,County name
+family,Family type
+housing_monthly,Average  monthly cost of housing
+food_monthly,Average monthly cost of food
+transportation_monthly,Average monthly of transportation
+healthcare_monthly,Average monthly cost of healthcare
+other_necessities_monthly,Average monthly cost of other necessities
+childcare_monthly,Average monthly cost of childcare
+taxes_monthly,Average monthly taxes
+total_monthly,Average monthly total cost
+housing_annual,Average annual cost of housing
+food_annual,Average annual cost of food
+transportation_annual,Average annual cost of transportation
+healthcare_annual,Average annual cost of healthcare
+other_necessities_annual,Average annual cost of other necessities
+childcare_annual,Average annual cost of childcare
+taxes_annual,Average annual taxes
+total_annual,Average annual total cost
+median_family_income,County median family income from the ACS
+num_counties_in_st,The total number of counties in the state
+st_cost_rank,Total cost rank: Ranks counties by total budget cost (1 = highest total) for each state
+st_med_aff_rank,"""Affordability"" rank: Ranks counties by median family income as a share of total annual cost. (1 = lowest share or least ""affordable"") for each state"
+st_income_rank,Ranks counties by median family income. (1 = highest income) for each state
+minimum_wage,State Minmum wage from Paycom.com
+region,"Geographical Region (Northeast, South, West, Midwest)"
