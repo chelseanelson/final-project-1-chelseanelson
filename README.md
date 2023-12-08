@@ -34,6 +34,6 @@ insights generated from my analyses, I would recommend reading through
 
 ## Acknowledgments
 
-I have already called any external libraries in `rscripts/0-data_collection_manipulation` file if needed throughout looking through my exploration. 
+I have already called any external libraries in `rscripts/0-data_collection_manipulation` file if needed throughout looking through your exploration. 
 
 All references to external sources and information used have been highlighted and can be found in the References section of `Nelson_Chelsea_final_report.html`.
