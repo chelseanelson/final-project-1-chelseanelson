@@ -25,15 +25,15 @@ Welcome to my final project repository! This project focuses on looking at the C
 
 ## Usage
 
-If you want to explore or run the code, I would recommend starting with **rscripts/0-data_collection_manipulation** and then running through each of the rscripts from there in order to get a feel of my thought process and see how 
+If you want to explore or run the code, I would recommend starting with `rscripts/0-data_collection_manipulation` and then running through each of the rscripts from there in order to get a feel of my thought process and see how 
 I went about exploring the data, as well as being able to connect your own 
-explorations as well. However, if you would just like a quick overview of my analyses, I would recommend reading through both **Nelson_Chelsea_progress_memo_1.html:** and **Nelson_Chelsea_progress_memo_2.html:** as well as **Nelson_Chelsea_final_report.html:** for a complete overview of my analyses,
+explorations as well. However, if you would just like a quick overview of my analyses, I would recommend reading through both `Nelson_Chelsea_progress_memo_1.html` and `Nelson_Chelsea_progress_memo_2.html` as well as `Nelson_Chelsea_final_report.html` for a complete overview of my analyses,
 from start to finish, If you would just like a quicker overview of the main 
 insights generated from my analyses, I would recommend reading through 
-**Nelson_Chelsea_executive_summary.html:** as that is a short executive summary of all the work and insights that I gained from my exploration. 
+`Nelson_Chelsea_executive_summary.html` as that is a short executive summary of all the work and insights that I gained from my exploration. 
 
 ## Acknowledgments
 
-I have already called any external libraries in my **rscripts/0-data_collection_manipulation** file if needed throughout looking through my exploration. 
+I have already called any external libraries in `rscripts/0-data_collection_manipulation` file if needed throughout looking through my exploration. 
 
-All references to external sources and information used have been highlighted and can be found  in the References section of my **Nelson_Chelsea_final_report.html:**.
+All references to external sources and information used have been highlighted and can be found in the References section of `Nelson_Chelsea_final_report.html`.
