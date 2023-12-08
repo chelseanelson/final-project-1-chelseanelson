@@ -34,7 +34,7 @@ library(tidyverse)
 library(readxl)
 library(magick)
 
-fbc_data <- read_rds("data/fbc_data")
+fbc_data <- read_rds("data/fbc_data.rds")
 
 ```
 
@@ -69,7 +69,7 @@ each state for 2022 (`minimum_wage`) [^1], whiles the other showcases
 the associated geographical region of each state (`region`). [^2]
 Additionally, I altered the variable type of the `metro` variable, to be
 representative as a factor with 0 being that the county is located in a
-nonmetropolitan area, and with a 1 representing the county being located
+non-metropolitan area, and with a 1 representing the county being located
 in a metropolitan area. Below I have provided the updated version of my
 dataset, including both my new variables. At this point, I still plan to
 add the racial majority makeup for each county, however I am still
@@ -109,7 +109,7 @@ have any impact of how I view and analyze my findings in the future.
 ![Looking at Metro Status of Counties](figures/univariate/figure-1.png){#fig-1}
 
 Above in @fig-1 we see that there are a lot more instances of counties
-being in nonmetropolitan areas than to that of metropolitan areas. I am
+being in non-metropolitan areas than to that of metropolitan areas. I am
 interested to see how this will affects aspects such as transportation
 and healthcare as there are heavy implications on how being further from
 a metro area can cause for more travel to gain necessitate items
@@ -118,7 +118,7 @@ hospitals or don't have such as an abundance of hospitals to them as
 though in extremely urban and metro areas, might go to the hospital less
 often. So I am really excited to look more into these relationships.
 Additionally, from this we could then also compare metropolitan areas in
-the south to that of to the north and same with nonmetropolitan areas in
+the south to that of to the north and same with non-metropolitan areas in
 each region to gauge if geographical region matters more than metro
 status or vice versa.
 
@@ -149,7 +149,7 @@ costs in healthcare. Expanding on this we then can look at distribution of
 annual housing cost and we see that there is a symmetric right-skewed 
 distribution as most people tend to spend around $12000 on housing annually. I 
 am surprised that there isn't a larger spread, as I know that housing in cities
-tend to be more expensive than housing in nonmetropolitan areas, thus I
+tend to be more expensive than housing in non-metropolitan areas, thus I
 hope to see if I can actually find this distinction in my research. Lastly, in 
 terms of the annual variables, the distribution of annual total costs spent on
 a nationwide level as a bimodal and slightly right-skewed shape as on average
@@ -232,8 +232,6 @@ statistically significant evidence we have to look more at microlevels and then
 perhaps expand our findings to the macrolevel rather than looking at the macro
 and then basing the micro off of those nonexistent findings.
 
-
-
 ### Questions that I have created
 
 Currently I want to look at the main factors causing for the large spread
@@ -251,7 +249,7 @@ Furthermore, I am interested in looking at, if I implement this variable,
 how racial majority of an county corresponds to the main expenses of the 
 citizens as well as the amounts that they spend. Within this I think it would
 be interesting to look at state policies and tax expenses 
-as well and see if we can draw conlcusions based on these factors as well. 
+as well and see if we can draw conclusions based on these factors as well. 
 
 # Next Steps
 
@@ -266,7 +264,7 @@ county to county, state to state, and region to region.
 
 I want to still add in my racial majority census data into this 
 dataset as well so that I can further analyzed my variables on different levels 
-accounting for mutliple reasons in which expenses in a county are the way 
+accounting for multiple reasons in which expenses in a county are the way 
 they are. 
 
 Lastly, I plan to make a codebook for my dataset after completing my data 

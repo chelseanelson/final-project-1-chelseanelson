@@ -98,7 +98,6 @@ Additionally, I would like to preference that in this section, I have presented 
 
 ### Univariate Analysis
 
-
 In terms of my univariate analysis, I looked at both the categorical and
 numerical variables, finding the most interesting statistics and figures
 within my analysis of the different numerical categories of expenses. 
@@ -115,72 +114,45 @@ being in nonmetropolitan areas than to that of metropolitan areas. I am
 interested to see how this will affects aspects such as transportation
 and healthcare as there are heavy implications on how being further from
 a metro area can cause for more travel to gain necessitate items
-sometimes as well as it seems that people who are further away from
+sometimes, as well as it seems that people who are further away from
 hospitals or don't have such as an abundance of hospitals to them as
 though in extremely urban and metro areas, might go to the hospital less
-often. So I am really excited to look more into these relationships.
-Additionally, from this we could then also compare metropolitan areas in
+often. So I was really excited to look more into these relationships.
+Additionally, from this we can then also compare metropolitan areas in
 the south to that of to the north and same with nonmetropolitan areas in
 each region to gauge if geographical region matters more than metro
 status or vice versa.
 
-Looking at the categories of expenses, I want to focus on and expand my
-research mostly on the total annual and monthly, transportation annual and monthly, healthcare annual and monthly, and housing annual and monthly costs. 
-For me these are the greatest variables in terms of finding differences between the counties on the micro and macro levels. Below I will be providing a brief explanation of the distribution of each expense at the national level, and I hope as I go further into my bivariate and mutlivariate analyses, I will
-expand on this to regional and state levels. A breakdown of the other categories of expenses is showcased [Appendix I - Univariate Analysis](#sec-appendix_univariate). (make a cross reference to the actual plots)
+Looking at the categories of expenses, I originally wanted to focus on and expand my research mostly on the total annual and monthly, transportation annual and monthly, healthcare annual and monthly, and housing annual and monthly costs. Below I have provided a brief explanation of the distribution of each expense at the national level. A breakdown of the other categories of expenses is can be founded in [Appendix I - Univariate Analysis](#sec-appendix_univariate).
 
 ![Looking at Annual Costs](figures/univariate/figure-12.png){#fig-2 width="697"} 
 
--- add distribution of transportation here as well 
-
-Looking at @fig-2 we see that the distribution of healthcare annual costs has a
+In @fig-2 we see that the distribution of healthcare annual expenses has a
 extremely large spread in comparison to the other variables at the annual level.
-Within that plot, there is seems to be a symmetric unimodal or one
-could even said a mutlimodal shape with most average costs of healthcare on 
-the annual level being around $12000. However even outside of this average 
-value, there are still smaller significant subgroups consisting of average 
-healthcare costs being around $6000 and $20000. I feel that there are so many 
-potential reasons for this large spread in healthcare annual costs, that I 
-would love to look further into, such as family size and location, as well as
-how the minimum wage rate and median family income relate to these higher 
-costs in healthcare. Expanding on this we then can look at distribution of 
-annual housing cost and we see that there is a symmetric right-skewed 
-distribution as most people tend to spend around $12000 on housing annually. I 
-am surprised that there isn't a larger spread, as I know that housing in cities
-tend to be more expensive than housing in nonmetropolitan areas, thus I
-hope to see if I can actually find this distinction in my research. Lastly, in 
-terms of the annual variables, the distribution of annual total costs spent on
+Within that plot, there is seems to be a symmetric mutlimodal shape with the  average costs of healthcare on the annual level being around $12000. 
+However even outside of this average value, there are still smaller significant subgroups consisting of average healthcare costs being around $6000 and $20000.
+Some early potential reasons that I feel cause this distribution could correlate to family size and location, as well as how the minimum wage rate and median family income relate to these higher healthcare expenses. Expanding on this we then can look at distribution of annual housing cost and we see that there is a symmetric right-skewed distribution as most people tend to spend around $12000 on housing annually. I am surprised that there isn't a larger spread, as I know that housing in cities tend to be more expensive than housing in non-metropolitan areas, as well as different regions have different housing market demands. The distribution of transportation expenses produces a unimodal 
+right-skewed shape as on average most people spend $13000 a year on transportation costs. I am not surprised by the lack of spread in this distribution as most people regardless of location spend a lot of many on car
+expenses each year, however I wan to see if metropolitan status creates any difference at all in the type of distributions presented. Lastly, in terms of the annual variables, the distribution of annual total costs spent on
 a nationwide level has a bimodal and slightly right-skewed shape as on average
 most families spend around $60000 a year. Within this plot of total annual 
-expenses, we see that although we have our average value, there is a lot of 
-spread and variation away from this average that we most account for. I hope to
-do this by looking at how the total annual expenses change state by state, while 
-also perhaps seeing how the different expenses within the total are accounted
-for differently as well. 
-
- -- need to add transportation to this univariate analysis 
+expenses, we expect to and see that although we have our average value, there is a lot of spread and variation away from this average that we most account for, relating to state and regional differences.
 
 ![Looking at Monthly Costs](figures/univariate/figure-13.png){#fig-3 width="697"}
 
 Turning our attention the distributions of the same variables above but now at 
-the monthly level, we see similar distributions trends to those in which I 
-pointed out before. For example, looking at the distribution of healthcare 
-costs monthly, we see lot of variability in the average expenses that 
-healthcare is monthly, alongside a mutlimodal slightly right-skewed shape, 
+the monthly level, we see as expected similar distributions trends to those in which I pointed out before. For example, looking at the distribution of healthcare costs monthly, we see lot of variability in the average expenses that healthcare is monthly, alongside a mutlimodal slightly right-skewed shape, 
 with an average cost around $1200 a month. In terms of monthly housing expenses,
 the plot showcases that on average, families spend about $900 on housing, with 
 some special cases of families spending over $2000 a month, as our distribution
-produces a unimodal right-skewed shape. Lastly looking at total monthly 
-expenses, we also see a pretty large spread in the amount that family types 
-spend monthly at the national level, with the average being around $7000 and 
-shape in the distribution of unimodal and right-skewed. From each of theses
-distributions, I hope to go further and see why certain variables have such
-large distributions in comparison to others, as well as the relationship between
-each of these variables, alongside variables like metro status and region. 
-
--- need to add transportation to this univariate analysis and then update my words to better fit everything as a whole
+produces a unimodal right-skewed shape. For our transportation distribution, we see again a right-skewed unimodal shape with families on average spending $1200 each month. Lastly looking at total monthly expenses, we also see a pretty large spread in the amount that family types spend monthly at the national level, with the average being around $7000 and shape in the distribution of unimodal and right-skewed. From each of theses plots, the distributions are as expected both
+in comparison to the annual expenses distributions, as well as when thinking 
+about how these and where the size of the spread for each of the distributions 
+might occur. 
 
 ### Bivariate Analysis 
+
+-- change this whole entire thing, sounds bad and not coherent
 
 As I made my move to bivariate analysis, I am still looking at the national
 level assessing to see now if there was any differences between the different 
@@ -203,6 +175,8 @@ status and geographical region to provide visual evidence to my claim.
 
 -- split up these plots, they look bad right now 
 
+-- add in correlation plot 
+
 Looking at each set of plots, we see that the only real different currently is 
 when we look at the different family types, the total expenses 
 (both annual and monthly) distributions move more and more to the left, 
@@ -211,30 +185,25 @@ Otherwise on the geographical and metro status levels, we see little to no
 differences between total annual expenses. Thus moving the analysis more to the
 microlevel will help to find those currently hidden differences. 
 
-### divide this between the univariate analysis and bivariate analysis sections 
-to be able to showcase stuff
+Conclusion statement on both the bivariate and univariate analyses: 
+Currently I want to look at the main factors causing for the large spread
+in the our distributions of healthcare both on the monthly and annual level,
+while also seeing where the breakdown of the total expenses on the monthly
+and annual levels might break down based on region or state. 
 
-So far, I have only look at these relationship on the national level. However,
-in terms of next steps moving to the regional and state level are next in 
-order to find more compelling results. 
+Additionally, I would like to see if families in states with higher minimum 
+wages better able to meet their budget requirements, while also assessing if 
+families in states with robust public transportation systems able to 
+allocate less of their budget to transportation costs, with more of the expenses
+turning towards housing instead.
 
-One of the main findings that I have found so far is that at the national level,
-there seems to be a lot of disparities in terms of how much people spend within
-their family types on healthcare, both at the annual and monthly levels. This 
-is surprising because compared to the other variables, healthcare had 
-increasingly more variation in its distribution bring attention to what could
-be the possible factors pertaining to this. Currently, I wonder if state policies 
-play into this as well as the type of insurances that people have. 
-Additionally, I wonder if this is a regional inconsistency or due to different
-metro status. These questions are ones I hope to expand on as I further my 
-analysis.
+Furthermore, I am interested in looking at, if I implement this variable,
+how racial majority of an county corresponds to the main expenses of the 
+citizens as well as the amounts that they spend. Within this I think it would
+be interesting to look at state policies and tax expenses 
+as well and see if we can draw conclusions based on these factors as well.
 
-Another main finding is that through my early bivariate analysis, I concluded
-that the national level is too broad to find differences between expenses 
-based on the categorical variables in which we relate them to. Thus to find 
-statistically significant evidence we have to look more at microlevels and then
-perhaps expand our findings to the macrolevel rather than looking at the macro
-and then basing the micro off of those nonexistent findings.
+From this early on analyses, I was able to form how I wished to go about my further explorations.
 
 Now, with this groundwork established, we can turn our attention to the core questions that drive my exploration:
 
