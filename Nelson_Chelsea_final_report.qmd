@@ -131,7 +131,7 @@ In @fig-2 we see that the distribution of healthcare annual expenses has a
 extremely large spread in comparison to the other variables at the annual level.
 Within that plot, there is seems to be a symmetric mutlimodal shape with the  average costs of healthcare on the annual level being around $12000. 
 However even outside of this average value, there are still smaller significant subgroups consisting of average healthcare costs being around $6000 and $20000.
-Some early potential reasons that I feel cause this distribution could correlate to family size and location, as well as how the minimum wage rate and median family income relate to these higher healthcare expenses. Expanding on this we then can look at distribution of annual housing cost and we see that there is a symmetric right-skewed distribution as most families tend to spend around $12000 on housing annually. I am surprised that there isn't a larger spread, as I know that housing in cities tend to be more expensive than housing in non-metropolitan areas, as well as different regions have different housing market demands. The distribution of transportation expenses produces a unimodal 
+Some early potential reasons that I feel cause this distribution could correlate to family size and location, as well as how the minimum wage rate and median family income relate to these higher healthcare expenses. Expanding on this we then can look at distribution of annual housing cost and we see that there is a unimodal right-skewed distribution as most families tend to spend around $12000 on housing annually. I am surprised that there isn't a larger spread, as I know that housing in cities tend to be more expensive than housing in non-metropolitan areas, as well as different regions have different housing market demands. The distribution of transportation expenses produces a unimodal 
 right-skewed shape as on average most families spend $13000 a year on transportation costs. I am not surprised by the lack of spread in this distribution as most families regardless of location spend a lot of many on car
 expenses each year, however I wan to see if metropolitan status creates any difference at all in the type of distributions presented. Lastly, in terms of the annual variables, the distribution of annual total costs spent on
 a nationwide level has a bimodal and slightly right-skewed shape as on average
@@ -145,7 +145,7 @@ the monthly level, we see in @fig-3 as expected similar distributions trends to 
 with an average cost around $1200 a month. In terms of monthly housing expenses,
 the plot showcases that on average, families spend about $900 on housing, with 
 some special cases of families spending over $2000 a month, as our distribution
-produces a unimodal right-skewed shape. For our transportation distribution, we see again a right-skewed unimodal shape with families on average spending $1200 each month. Lastly looking at total monthly expenses, we also see a pretty large spread in the amount that family types spend monthly at the national level, with the average being around $7000 and shape in the distribution of unimodal and right-skewed. From each of theses plots, the distributions are as expected both
+produces a unimodal right-skewed shape. For our transportation distribution, we see again a right-skewed unimodal shape with families on average spending $1200 each month. Lastly looking at total monthly expenses, we also see a pretty large spread in the amount that family types spend monthly at the national level, with the average being around $7000 and shape in the distribution of unimodal and right-skewed. For each of theses plots, the distributions are as expected both
 in comparison to the annual expenses distributions, as well as when thinking 
 about how these and where the size of the spread for each of the distributions 
 might occur. 
@@ -242,11 +242,18 @@ State conclusions or insights. Were you surprised by things you found or were th
 ### Univariate Analysis {#sec-appendix_univariate}
 
 ![Annual Costs - Other Categories of Expenses](figures/univariate/figure-22.png){#fig-appendix_1 width="697"}
-talk the talk
+
+In @fig-appendix_1 we see that the distribution of food annual expenses has a
+interestingly large spread, as it has a somewhat multimodal right-skewed shape with the average costs of food on the annual level being around $9000. 
+However even outside of this average value, there are some families that spend as little as around $3000 on food a year or as much as almost $20000 on food a year. This range is probably most related to the variations in family sizes. 
+Expanding on this we then can look at distribution of annual taxes cost and we see that there is a unimodal right-skewed distribution as most families tend to have around $5000 in taxes expenses annually. I am surprised that there isn't a larger spread, as I know that housing in cities tend to be more expensive than living in a non-metropolitan areas, as well as different regions have different tax policies. The distribution of childcare expenses produces almost two different plots, one being a singular bar representing the families without children and the second being that of families with children. Turning our attention more to the side with families that have children ther eseems to be a multimodal symmetric shape in the distribution with most families spending our $12000 on childcare annually. Similar to food annual expenses, the distribution of this expense is mostly related to how many children are in the family. Lastly, the distribution of other necessities annual costs spent on
+a nationwide level has a bimodal and slightly right-skewed shape as on average
+most families spend around $6000 a year on other necessities not mentioned in the categories above.
 
 ![Monthly Costs - Other Categories of Expenses](figures/univariate/figure-23.png){#fig-appendix_2 width="697"}
 
-talk the talk 
+Turning our attention the distributions of the same variables above but now at 
+the monthly level, we see in @fig-appendix_2 as expected similar distributions trends to those in which I pointed out before. For example, the distribution of food now on the monthly level still seems to have a relatively large distribution, as it exhibits a multimodal slightly right-skewed shape. If I had time, I would have loved to see how food stamps and other economic factors play into this category of expense. The distribution of taxes monthly has a unimodal right-skewed shape as most families get taxed around $500 a month. However again, there is a relatively large spread thus bringing awareness to the different taxes policies that are in place around the United States. Again, looking at childcare now at the monthly level, we can divide this figure into almost two different plots, one for families with children and one for families without children. Looking at the side of families with children, we can see that thre is a multimodal slightly right-skewed shape as most families spend around $1000 a month on childcare expenses, however again this price is extremely spread out based on the family size. Finally, looking at the distribution of other necessities expenses for families at the monthly rate, we see that there is similar to the annual rate, a bimodal slightly right-skewed shape to indicate that different families truly do have different allocations for this other necessities category of expenses, I wonder if this is regional, state by state, county by county, or how this allocation is decided. For each of theses plots, the distributions are as expected in comparison to the annual expenses distributions.
 
 ### Bivariate Analysis {#sec-appendix_bivariate}
 

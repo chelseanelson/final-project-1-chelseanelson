@@ -6,11 +6,10 @@ This directory contains R scripts for different stages of the data analysis proc
 1. **0-data_collection_manipulation.R:** Script for collecting and manipulating data.
 2. **1-univariate_analysis.R:** Script for conducting univariate analysis.
 3. **2-bivariate_analysis.R:** Script for performing bivariate analysis.
-4. **3-multivariate_analysis.R:** Script for performing multivariate analysis.
+4. **3-multivariate_analysis.R:** Script for preparing for my multivariate analysis.
 5. **4-question1.R:** Script related to answering my first exploration question.
 6. **5-question2.R:** Script related to answering my second exploration question.
-7. **6-question3.R:** Script related to answering my third exploration question.
-8. **7-codebook.R:** Script for generating or updating the codebook.
+8. **6-codebook.R:** Script for generating or updating the codebook.
 
 ## Usage
 

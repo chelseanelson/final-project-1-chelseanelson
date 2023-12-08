@@ -2,7 +2,7 @@
 
 1. **univariate:** Directory containing files of figures related to my univariate analysis.
 2. **bivariate:** Directory containing files of figures related to my bivariate analysis.
-3. **multivariate:** Directory containing files of figures related to my multivariate analyses. Being separated into three subfiles, `question1`, `question2`. and `question3`. 
+3. **multivariate:** Directory containing files of figures related to my multivariate analyses. Being separated into two subfiles, one for each question, `question1` and  `question2`. 
 4. **tables:** Directory to store tables or results generated during the analysis.
 
 ## Acknowledgement 
