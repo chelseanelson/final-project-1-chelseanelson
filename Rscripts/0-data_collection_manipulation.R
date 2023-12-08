@@ -5,15 +5,15 @@ library(patchwork)
 
 # Data Collection ----
 ## larger version of dataset
-fbc_data <- read_excel("data/raw/fbc_data_2022_raw.xlsx", sheet = "County") %>%
+fbc_data_raw <- read_excel("data/raw/fbc_data_2022_raw.xlsx", sheet = "County") %>%
   janitor::clean_names()
 fbc_data_codebook_raw <- read_excel("data/raw/fbc_data_2022_raw.xlsx", 
                                 sheet = "Codebook")
-fbc_data
+fbc_data_raw
 fbc_data_codebook_raw
 
 # smaller version of dataset --> only shows annual cost
-cost_of_living_us <- read_csv("data/raw/cost_of_living_us_raw.csv") 
+cost_of_living_us_raw <- read_csv("data/raw/cost_of_living_us_raw.csv") 
 cost_of_living_us
 
 # racial majority dataset --> joining to my fbc_data 
@@ -21,26 +21,26 @@ cost_of_living_us
 
 # Checking for NA Data ----
 # skimming the data for NA 
-fbc_data %>% skimr::skim()
-fbc_data %>% naniar::miss_var_summary()
+fbc_data_raw %>% skimr::skim()
+fbc_data_raw %>% naniar::miss_var_summary()
 # 5 variables have 10 missing observations 
 
-cost_of_living_us %>% skimr::skim()
-cost_of_living_us %>% naniar::miss_var_summary()
+cost_of_living_us_raw %>% skimr::skim()
+cost_of_living_us_raw %>% naniar::miss_var_summary()
 
-fbc_data %>% filter(is.na(median_family_income))
+fbc_data_raw %>% filter(is.na(median_family_income))
 # These all pertains to a county in Missouri. If all of the other accounts of NA values for the other variables also pertains to this singular county,
 # I will just exclude it from my analysis.
 
 # looking at that particular case 
-fbc_data %>% filter(case_id == 1533) %>% relocate(median_family_income, num_counties_in_st, st_cost_rank, st_med_aff_rank, st_income_rank)
+fbc_data_raw %>% filter(case_id == 1533) %>% relocate(median_family_income, num_counties_in_st, st_cost_rank, st_med_aff_rank, st_income_rank)
 # all accounts of NA data pertain to this one case, thus I feel it would be 
 # best to remove it from my data indefinitely, by using na.omit(). 
 
 # Data Manipulation and Wrangling ----
 # adding minimum wage
 # This was sourced from paycom.com (include link)
-fbc_data <- na.omit(fbc_data) %>% mutate(
+fbc_data <- na.omit(fbc_data_raw) %>% mutate(
   minimum_wage = case_when(
     state_abv %in% c("AL","GA","ID","IN","IA",
                      "KS","KY","LA","MS","NH","NC","ND",
@@ -127,6 +127,7 @@ fbc_data %>% skimr::skim()
 
 # saving as rds to use in qmd file 
 write_rds(fbc_data, "data/fbc_data.rds")
+fbc_data <- read_rds("data/fbc_data.rds")
 
 # testing manipulations
 fbc_data %>% 
