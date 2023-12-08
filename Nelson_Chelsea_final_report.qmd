@@ -114,7 +114,7 @@ being in nonmetropolitan areas than to that of metropolitan areas. I am
 interested to see how this will affects aspects such as transportation
 and healthcare as there are heavy implications on how being further from
 a metro area can cause for more travel to gain necessitate items
-sometimes, as well as it seems that people who are further away from
+sometimes, as well as it seems that families who are further away from
 hospitals or don't have such as an abundance of hospitals to them as
 though in extremely urban and metro areas, might go to the hospital less
 often. So I was really excited to look more into these relationships.
@@ -131,8 +131,8 @@ In @fig-2 we see that the distribution of healthcare annual expenses has a
 extremely large spread in comparison to the other variables at the annual level.
 Within that plot, there is seems to be a symmetric mutlimodal shape with the  average costs of healthcare on the annual level being around $12000. 
 However even outside of this average value, there are still smaller significant subgroups consisting of average healthcare costs being around $6000 and $20000.
-Some early potential reasons that I feel cause this distribution could correlate to family size and location, as well as how the minimum wage rate and median family income relate to these higher healthcare expenses. Expanding on this we then can look at distribution of annual housing cost and we see that there is a symmetric right-skewed distribution as most people tend to spend around $12000 on housing annually. I am surprised that there isn't a larger spread, as I know that housing in cities tend to be more expensive than housing in non-metropolitan areas, as well as different regions have different housing market demands. The distribution of transportation expenses produces a unimodal 
-right-skewed shape as on average most people spend $13000 a year on transportation costs. I am not surprised by the lack of spread in this distribution as most people regardless of location spend a lot of many on car
+Some early potential reasons that I feel cause this distribution could correlate to family size and location, as well as how the minimum wage rate and median family income relate to these higher healthcare expenses. Expanding on this we then can look at distribution of annual housing cost and we see that there is a symmetric right-skewed distribution as most families tend to spend around $12000 on housing annually. I am surprised that there isn't a larger spread, as I know that housing in cities tend to be more expensive than housing in non-metropolitan areas, as well as different regions have different housing market demands. The distribution of transportation expenses produces a unimodal 
+right-skewed shape as on average most families spend $13000 a year on transportation costs. I am not surprised by the lack of spread in this distribution as most families regardless of location spend a lot of many on car
 expenses each year, however I wan to see if metropolitan status creates any difference at all in the type of distributions presented. Lastly, in terms of the annual variables, the distribution of annual total costs spent on
 a nationwide level has a bimodal and slightly right-skewed shape as on average
 most families spend around $60000 a year. Within this plot of total annual 
@@ -141,7 +141,7 @@ expenses, we expect to and see that although we have our average value, there is
 ![Monthly Costs](figures/univariate/figure-13.png){#fig-3 width="697"}
 
 Turning our attention the distributions of the same variables above but now at 
-the monthly level, we see as expected similar distributions trends to those in which I pointed out before. For example, looking at the distribution of healthcare costs monthly, we see lot of variability in the average expenses that healthcare is monthly, alongside a mutlimodal slightly right-skewed shape, 
+the monthly level, we see in @fig-3 as expected similar distributions trends to those in which I pointed out before. For example, looking at the distribution of healthcare costs monthly, we see lot of variability in the average expenses that healthcare is monthly, alongside a mutlimodal slightly right-skewed shape, 
 with an average cost around $1200 a month. In terms of monthly housing expenses,
 the plot showcases that on average, families spend about $900 on housing, with 
 some special cases of families spending over $2000 a month, as our distribution
@@ -150,48 +150,37 @@ in comparison to the annual expenses distributions, as well as when thinking
 about how these and where the size of the spread for each of the distributions 
 might occur. 
 
-### Bivariate Analysis 
+### Bivariate Analysis {#sec-bivariate_analysis}
 
--- change this whole entire thing, sounds bad and not coherent
+As I made my move to conducting my bivariate analysis, I focused on curating and gaining insights through three main areas. Those being the creation of a correlation matrix, looking specifically at the relationship between median family income and total annual expenses, cost of living, at the national level, and finally bringing the univariate analyses and insights formed to more mircolevels, being at regional, family type, and metro classification levels.
 
-As I made my move to conducting my bivariate analysis, 
+First, I will be discussing the main observations that I found through my correlation matrix, which helped to contribute to the creation of my curiousities for my main explorations. 
 
+![National-Level Correlation Matrix](figures/bivariate/correlation-matrix_national.png){#fig-4}
 
-I am still looking at the national
-level assessing to see now if there was any differences between the different 
-types of expenses, both at the monthly and annual levels, in relation with
-metro status, family type, and geographical region. Overall, I found that 
-for all three characteristics, the difference expenses did not seem to have
-much to any differences between them. Thus, I think that at a national level
-we can conclude that there is little to no difference between expenses in terms
-of metro status, family type, and geographical region, thus meaning that if 
-there are differences present they would be more visual at the regional, state,
-and county regions. Below, I have provided figures of the relationship between
-total expenses for both annually and monthly to that of family type, metro 
-status and geographical region to provide visual evidence to my claim.
+@fig-4 is a correlation matrix to show the relationship between the different categories of expenses as well as how they relate to median family income and how they impact a counties in-state income ranking. Whiles looking at the in-state income ranking column, it is expected that it would have a negative correlation with the different expenses because as the expenses go up the ranking of the state goes down in term for example going from number 10 to number 1 in the ranking. However, interestingly healthcare seems to have a slightly positive but rather nonexistent relationship with the ranking, meaning that either healthcare expenses don't play a large part in the ranking system as they are probably consistent across the board nationally or that for some reason
+an increase in the healthcare expenses in a county would increase its ranking in terms of for example going from 1st to 10th. This is super interesting and I would love to look more into this relationship. Looking at all of the categories of expenses, we see that they correlate strongly to each other, which makes sense due to the fact that an increase in one usually means a increase in the other as cost of living goes up. There are probably also related geographical reasons for this and perhaps some regions have stronger correlations between there different categories of expenses than others. Lastly, I would like to highlight from this plot the interesting relationship between minimum wage and healthcare (both annually and monthly) as they exhibit a slightly negative but almost nonexistent relationship. This could possibly mean that the price of healthcare is centralized around the price of the minimum wage, as I would not expect for healthcare prices to decrease as the minimum wage increases, but rather the exact opposite. I would love to look further into this relationship as well and see how they correlate and if as minimum wage increases does the allocation of one's total expenses go or less towards healthcare. 
 
-![National-Level Correlation Matrix ](figures/bivariate/correlation-matrix_national.png){#fig-4}
-
-talk the talk
+Another main area of focus that I wanted to look at in order to help build my curiosities for my main exploration was the relationship between median family income and total annual expense or the cost of living for each county in the United States of America. 
 
 ![Median Family Income vs. Total Annual (Cost of Living)](figures/bivariate/median_family_total_annual.png){#fig-5}
-talk the talk
 
-intro to talking about total annual and monthly expenses at the three different levels and how people can see visualizations of the other main categories in my exploration thus far (transportation, housing, healthcare) in [Appendix I - Bivariate Analysis](#sec-appendix_bivariate)
+Through @fig-5 we get to see a good visual representation of the relationship between median family income and total annual expenses at the broadest level. Within this plot, I found it intriguing but almost expected on how spread out the data was in terms of both how much families' expenses are per year but also the disparities between income levels in the United States. Additionally, this figure brings attention to how most families' incomes are less than the total amount of expenses that they have per year. This is already known to be a large
+problem in the United States as a whole, however I would like to and hope to in my further analysis be able to see if these disparities occur more in one geographical facet than the other to help bring insight into possibly why these disparities even exist. 
 
+Lastly in my bivariate analysis I wished to see how each of the different categories of expense, both on the annual and monthly levels, compared at more mircolevels, thus looking at regional, metro, and family type differences. In this section, I will only be discussing the insights that I gained on the distributions of total annual and monthly expenses at these three different levels, as it fits most into my further analyses and curiosities. However, I have also include in [Appendix I - Bivariate Analysis](#sec-appendix_bivariate) visualizations and short descriptions of the distributions of the three other main variables in which I previously discussed (transportation, housing, healthcare) as additional information and insights. 
 
 ![Total Annual Expenses Based on Family Type](figures/bivariate/figure-1_bi.png){#fig-6 width="697"}
 ![Total Annual Expenses Based on Metro Classification and Geographical Region](figures/bivariate/figure-25_bi.png){#fig-7 width="697"}
 ![Total Monthly Expenses Based on Family Type](figures/bivariate/figure-2_bi.png){#fig-8 width="697"}
 
 ![Total Monthly Expenses Based on Metro Classification and Geographical Region](figures/bivariate/figure-25_bi.png){#fig-9 width="697"}
-Looking at each set of plots, we see that the only real different currently is 
-when we look at the different family types, the total expenses 
-(both annual and monthly) distributions move more and more to the left, 
+Observing each set of plots, we see that the only real different currently is 
+when we look at the different family types, as the total expenses 
+(both annual and monthly) distributions move more and more to the right, 
 increasing. This makes senses as larger families tend to have more expenses. 
 Otherwise on the geographical and metro status levels, we see little to no 
-differences between total annual expenses. Thus moving the analysis more to the
-microlevel will help to find those currently hidden differences. 
+differences between total annual and monthly expenses, expect that there is a larger spread of the distribution moving more to the right, increasing, for families that live in a metro area, the Northeast, or West. This recognition is extremely important as although it is commonly known that living in one of these three geographical facets is usually more expensive, this brings attention how this then impact other factors, such as median family income and housing, while also seeing if the allocation of expenses is the same for each geographical facet as well. Thus perhaps combining these different levels will help create breakdown and showcase more meaningful insights.
 
 Conclusion statement on both the bivariate and univariate analyses: 
 Currently I want to look at the main factors causing for the large spread
@@ -199,21 +188,7 @@ in the our distributions of healthcare both on the monthly and annual level,
 while also seeing where the breakdown of the total expenses on the monthly
 and annual levels might break down based on region or state. 
 
-Additionally, I would like to see if families in states with higher minimum 
-wages better able to meet their budget requirements, while also assessing if 
-families in states with robust public transportation systems able to 
-allocate less of their budget to transportation costs, with more of the expenses
-turning towards housing instead.
-
-Furthermore, I am interested in looking at, if I implement this variable,
-how racial majority of an county corresponds to the main expenses of the 
-citizens as well as the amounts that they spend. Within this I think it would
-be interesting to look at state policies and tax expenses 
-as well and see if we can draw conclusions based on these factors as well.
-
-From this early on analyses, I was able to form how I wished to go about my further explorations.
-
-Now, with this groundwork established, we can turn our attention to the core questions that drive my exploration:
+Now, with this groundwork established, we can turn our attention to the core questions that I formed to drive my exploration:
 
 ### 1. How does the cost of living vary across different geographical facets and metro classifications? 
 
@@ -230,7 +205,6 @@ Say an intro sentence here:
 
 ### 2. Are there discernible patterns or trends in budget allocation that stand
 out, considering family types and monthly expenses? 
-
 
 Building on the foundation of my previous analyses, I now shift focus more heavily on the allocation of expenses. Exploring patterns and trends in budget allocation, I aim to identify distinctive markers that stand out amidst the diverse financial landscape pertaining to the different family types and the 
 relationship between monthly and annual expenses. Thus, looking to see how 
@@ -265,15 +239,43 @@ State conclusions or insights. Were you surprised by things you found or were th
 
 ## Appendix I: Extra Explorations {#sec-appendix}
 
-Useful in cases where there are an over-abundance of explorations and they are not useful in the main body of the report or they are uninteresting, but still think readers should have access to them for reference.
-
 ### Univariate Analysis {#sec-appendix_univariate}
 
-![Looking at Annual Costs - Other Categories of Expenses](figures/univariate/figure-22.png){#fig-appendix_1 width="697"}
+![Annual Costs - Other Categories of Expenses](figures/univariate/figure-22.png){#fig-appendix_1 width="697"}
 talk the talk
 
-![Looking at Monthly Costs - Other Categories of Expenses](figures/univariate/figure-23.png){#fig-appendix_2 width="697"}
+![Monthly Costs - Other Categories of Expenses](figures/univariate/figure-23.png){#fig-appendix_2 width="697"}
 
 talk the talk 
 
 ### Bivariate Analysis {#sec-appendix_bivariate}
+
+For all of the figures below, just as in my [bivariate analysis](#sec-bivariate_analysis) we see that the only real different currently is when we look at the different family types, with the categories expenses 
+(both annual and monthly) distributions move more and more to the right, 
+increasing. This makes senses as larger families tend to have more expenses in all of the different categories. Otherwise on the geographical and metro status levels, we see little to no differences between the categories annual and monthly expenses, expect that there is a larger spread of the distribution moving more to the right, increasing, for families that live in a metro area, the Northeast, or West.
+
+#### Annual Expenses 
+![Healthcare Annual Expenses Based on Family Type](figures/bivariate/figure-3_bi.png){#fig-appendix_3 width="697"}
+
+![Healthcare Annual Expenses Based on Metro Classification and Geographical Region](figures/bivariate/figure-31_bi.png){#fig-appendix_4 width="697"}
+
+![Transportation Annual Expenses Based on Family Type](figures/bivariate/figure-5_bi.png){#fig-appendix_5 width="697"}
+
+![Healthcare Annual Expenses Based on Metro Classification and Geographical Region](figures/bivariate/figure-29_bi.png){#fig-appendix_6 width="697"}
+
+![Housing Annual Expenses Based on Family Type](figures/bivariate/figure-7_bi.png){#fig-appendix_7 width="697"}
+
+![Housing Annual Expenses Based on Metro Classification and Geographical Region](figures/bivariate/figure-27_bi.png){#fig-appendix_8 width="697"}
+
+#### Monthly Expenses
+![Healthcare Monthly Expenses Based on Family Type](figures/bivariate/figure-4_bi.png){#fig-appendix_9 width="697"}
+
+![Healthcare Monthly Expenses Based on Metro Classification and Geographical Region](figures/bivariate/figure-32_bi.png){#fig-appendix_10 width="697"}
+
+![Transportation Monthly Expenses Based on Family Type](figures/bivariate/figure-6_bi.png){#fig-appendix_11 width="697"}
+
+![Transportation Monthly Expenses Based on Metro Classification and Geographical Region](figures/bivariate/figure-30_bi.png){#fig-appendix_12 width="697"}
+
+![Housing Monthly Expenses Based on Family Type](figures/bivariate/figure-8_bi.png){#fig-appendix_13 width="697"}
+
+![Housing Monthly Expenses Based on Metro Classification and Geographical Region](figures/bivariate/figure-28_bi.png){#fig-appendix_14 width="697"}
