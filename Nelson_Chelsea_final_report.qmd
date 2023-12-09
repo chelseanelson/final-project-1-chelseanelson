@@ -292,11 +292,45 @@ I will first start my analysis at the national level looking towards then how th
 
 ![Total Annual Expenses Based on Region and Family Type](figures/multivariate/question2/question2_figure1.png){#fig-24 width="697"}
 
-![Budget Heatmap Allocation](figures/multivariate/question2/question2_figure2.png){#fig-25}
-![put the combined plots here ](figures/multivariate/question2/question2_figure3.png){#fig-26}
+@fig-24 visualizes how the average total annual expenses vary across different regions for each family type, providing insights into regional spending patterns. This figure is pretty much an extension of work that was done to gain insights into how spending varies for each family type based on the region in which they exist. The figure presents not surprising information based on what we have previously learned throughout this exploration, as we see that regardless of family type, the Northeast and West have the highest average cost of living, and the South usually has the lowest average cost of living. However,
+interestingly when the family has no children, there is less expenses on when living in the Midwest than when living in the West. 
 
+After gaining more insights from the previous figure, I thought it would be  beneficial to look at a percent allocation of each category of expenses out of the total annual expenses. The following figures can then be translated to monthly expenses as well due to the one-to-one relationship that each category on the annual level as with the categories on the monthly level. 
+
+![Budget Heatmap Allocation](figures/multivariate/question2/question2_figure2.png){#fig-25}
+
+Looking at the national level of the separate family types, we see in @fig-25 that the largest expense for the families without children is transportation. Which is extremely interesting to me as I feel that people without children would have to worry less about having a car or other expenses transportation, but rather could stick to public transportation instead. I would like to see if this trend sticks for all of the different regions or just some of them. For families of 1 parent and 1 child as well as families of 2 parents and 1 child also place the most percentage of their total expenses on transportation. This is because in relation to other family types, due to the smaller family size, there is less money being spent on childcare, food, housing, and other necessities, thus placing the majority on transportation. This explanation also supports why families with no children also have a majority of their expenses going to transportation as the cost of the other necessities become lesser in relation to larger families. Lastly within this figure, I would like to point out how for most of the other family types due to their larger size and growth in the amount of children, there is a raise in healthcare and childcare expenses.  
+
+
+![Budget Allocation Heatmap For Nonmetro Areas in Western States](figures/multivariate/question2/question2_figure3.png){#fig-26}
+
+In @fig-26 we turn our attention to looking at the budget allocations of the nonmetro areas in Western states. In this figure, we see similar trends to what was previously discussed when looking at @fig-25. These statistics are surprising as based on insights created previously about how the west has high housing market demands and the lack of competition for insurances in the nonmetro areas, I would expected housing and healthcare expenses to be allocated the most money out of the total expense for each family type. However, transportation and childcare seem to be the two top contenders in terms of the amount of money that families spend on both each year. 
+
+![Budget Allocation Heatmap For Metro Areas in Western States](figures/multivariate/question2/question2_figure4.png){#fig-27}
+
+![Budget Allocation Heatmap For Nonmetro Areas in Southern States](figures/multivariate/question2/question2_figure5.png){#fig-28}
+
+![Budget Allocation Heatmap For Metro Areas in Southern States](figures/multivariate/question2/question2_figure6.png){#fig-29}
+
+![Budget Allocation Heatmap For Nonmetro Areas in Northeastern States](figures/multivariate/question2/question2_figure7.png){#fig-30}
+
+![Budget Allocation Heatmap For Metro Areas in Northeastern States](figures/multivariate/question2/question2_figure8.png){#fig-31}
+
+![Budget Allocation Heatmap For Nonmetro Areas in Midwestern States](figures/multivariate/question2/question2_figure9.png){#fig-32}
+
+![Budget Allocation Heatmap For Metro Areas in Midwestern States](figures/multivariate/question2/question2_figure10.png){#fig-33}
+
+
+-- talk about both of the plots here 
+
+![Median Family Income vs. Minimum Wage Based on Region](figures/multivariate/question2/question2_figure11.png){#fig-34}
+
+![Median Family Income vs. Minimum Wage Based on Region](figures/multivariate/question2/question2_figure12.png){#fig-35}
 
 Thus through answering these two esstenial questions, I was able to gain interesting insights on the following.....
+
+
+
 
 ## Conclusions 
 

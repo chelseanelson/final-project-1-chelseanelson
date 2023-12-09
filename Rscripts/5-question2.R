@@ -13,7 +13,7 @@ total_annual_expenses_family_region <- fbc_data %>%
     avg_total_annual = mean(total_annual)
   ) %>% 
   ggplot(aes(x = region, y = avg_total_annual)) +
-  geom_text(aes(label = sprintf("$%.2f", avg_total_annual)), size = 3, 
+  geom_text(aes(label = sprintf("$%.2f", avg_total_annual)), size = 2.5, 
             position = position_dodge(width = 0.9), vjust = -0.25) + 
   geom_col() + 
   facet_wrap(~family) + 
@@ -141,7 +141,7 @@ budget_heatmap_regional_metro <- function(region_name, metro_status) {
         ) +
         theme_light() + 
         scale_fill_viridis_c() +
-        theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) +scale_x_discrete(labels = c("childcare annual","food annual","healthcare annual","housing annual","other necessities annual", "taxes annual","transportation annual"))
+        theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1)) + scale_x_discrete(labels = c("childcare annual","food annual","healthcare annual","housing annual","other necessities annual", "taxes annual","transportation annual"))
   }
 }
 budget_heatmap_regional_metro_w0 <- budget_heatmap_regional_metro("west", "0")
