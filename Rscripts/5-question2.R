@@ -186,7 +186,7 @@ ggsave("figures/multivariate/question2/question2_figure11.png", minimum_wage_med
 
 minimum_wage_cost_of_living <- ggplot(fbc_data, aes(minimum_wage, total_annual, color = family)) +
   geom_jitter() + facet_wrap(~region, labeller = labeller(region = c("south" = "South", "west" = "West", "northeast" = "Northeast", "midwest" = "Midwest"))) + 
-  labs(title = "Median Family Income vs. Minimum Wage Based on Region",
+  labs(title = "Total Annual Expenses vs. Minimum Wage Based on Region",
        x = "Minimum Wage",
        y = "Total Annual Expenses",
        color = "Family Types") +
