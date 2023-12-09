@@ -27,8 +27,67 @@ Repo](https://github.com/stat301-1-2023-fall/final-project-1-chelseanelson)
 
 ## Purpose 
 
+The primary objective of this exploration was to gain a better understanding of the nuances related to the cost of living at multiple different levels and understanding the variations between these based on family size. Thus exploring
+budget allocation and income disparities across different geographical facets.
+Conducting an analysis that brings attention to a lot of the inequity present in the United States of America, as well as creating a comprehensive understanding of the different economic nuances that shape household budgets in different regions of the United States.
+
 ## Major Results
 
+In order to start my analysis, I took towards knowing and seeing when and how the different categories and variables correlate with each other. In @fig-1 I was able to see how strongly correlated all the different categories of expenses are to each other as well as seeing how they correlate in their monthly and annual counterparts. I also found it interesting to look at how minimum wage correlated with different categories of expenses, however I was unable to further this interest in my exploration. 
+
+![National-Level Correlation Matrix](figures/bivariate/correlation-matrix_national.png){#fig-1}
+
+### Cost of Living
+
+Turning toward my first question which focused on how cost of living differ based on region and metro classification, I was able to gain a lot of interesting insights that changed my perspective of how geogrpahical facets play a role in the determining of expenses. 
+
+![Average Cost of Living Based on Region and Metro Classification](figures/multivariate/question1/question1_figure2.png){#fig-2 width="697"}
+
+In @fig-2 we are observing the relationship between median family income and average total annual expenses, or the cost of living for each region and metro classification combination at national level. The figure showcases that people people in the metro Northeast have the highest average cost of living, whereas living in the metro South has an extremely lower average cost of living, being also similar to the cost of living in the nonmetro Northeast. A similar relationship is seen with the nonmetro West, which seems to be more expensive than both the metro Midwest and Metro south. Some possible reasons behind this could be related to infrastructure and accessibility in things such as public transportation. Additionally, it is usually known that housing in the South and Midwest, regardless of location tends to be less expensive than housing in the 
+Northeast and West as in these regions there are higher housing market 
+demands, as more and more people move to these densely populated areas. Additionally, the cost of living could also ultimately be a result of the taxes and local policies that are in these regions, as most states in the Northeast and West tend to have better healthcare and other incentives for their citizens, which is brought in via having higher taxes. Through gaining this basic understanding of the relationship between median family income and cost of living, I was able to turn my attention towards looking at each geographical regions' nonmetro and metro distributions of spending in different categories of expenses, and then also looking at the nonmetro and metro of the regions' family types' average distribution of spending in categories. 
+
+![Distribution of Spending in the West Based on Metro Classification](figures/multivariate/question1/question1_figure3.png){#fig-3 width="697"}
+
+![Distribution of Spending in the Northeast Based on Metro Classification](figures/multivariate/question1/question1_figure6.png){#fig-4 width="697"}
+
+In @fig-3 and @fig-4, we are shown comparisons between non-metropolitan and metropolitan for the Northeast and West regions in the United States at the marcolevel, thus being averages across all family types. Additionally, I also conducted these comparisons for the Midwest and South, however found the most interesting insights in the formers. 
+
+In the West, we see that out of total spending, housing is allocated the most expenses when living in a metro area. This result fits into the housing market demands in the West being extremely high, hosting some of the most expensive housing in America. On the other side for the West, when living in a nonmetro area, transportation is allocated the most expenses out of the total. As the West is not none for really connecting the metro areas to the nonmetro areas, I am not surprised that transportation is given the highest cost as having a car would then be an essential item in the none metro areas. 
+
+The distribution of spending in the Northeast was interesting to investigate and gain insights into because in the metro Northeast, childcare is one of the largest expenses compared to their nonmetro counterparts. This was super surprising to observe as I would not think that metro classification played a larger role in the prices of childcare. In a further exploration I would love to look further into this and see why is this relationship occurring. Perhaps it is due to just the idea of living in a city, things and services are more expensive or is there potential another reason behind this. 
+
+Lastly, looking more deeply at the distribution of spending in the Northeast, we see that for families that live in metro areas, transportation is allocated the second most expenses out of the annual total expenses. I found this interesting, as I always think of New York City, and its wonderful public transportation system so I would assume that since people don't really need cars to get around as much in New York City, the transportation cost would be one of the lowest. However I have to recognize that I am looking at the regional level currently, and not a specific New York or New York County. For families overall that live in nonmetro areas, healthcare and transportation are the two most expensive categories. This observation made me realized that even with Amtrak trains, for families who don't live near either them (which is a lot of families), they need a car to do most activities, thus increasing that transportation cost. Looking at the high expense of healthcare, this observation could be because people in nonmetro areas tend to have larger families, thus more individuals that the family as to pay for each year or so. Additionally, another theory is that there is more competition between insurance and medical plans in metro areas thus making companies offer lower plans to get the most sells, whereas this technique is uncommon in nonmetro areas as they have more spur populations. 
+
+Thus after looking at these distributions from the national level, I felt it would be beneficial to turn my analysis towards looking at each distinctive family size group.
+
+![Distribution of Spending in the West Based on Metro Classification and Family Size](figures/multivariate/question1/question1_figure4.png){#fig-5 width="697"}
+
+@fig-5 showcases comparisons between non-metropolitan and metropolitan for the  West regions in the United States for each distinctive family type. I also conducted these comparisons for the other geographical regions, however the findings were pretty similar across each region. Some trends in the figures which really jumped out to me were that transportation expenses are slightly allocated a little bit more of a families' total budget in the nonmetro areas than that of in the metro areas. This makes sense as there are buses and other forms of public transportation that are accessible in  metro areas that aren't in nonmetro areas, while also knowing that people regardless of location, if they can, love the ability to have a car and drive. In all other aspects regardless of family size, people in metro areas seem to spend more money than people in nonmetro areas, which makes sense in terms of metro areas being relatively more expensive than nonmetro areas for the most part in America. I was especially surprised by the closeness in the expenses for transportation for metro and nonmetro areas. However after further investigate and understanding I find it interesting that the largest gap between transportation for the metro and nonmetro areas is when the families consist of no children, thus bringing light to how having children more often than not means that the parent is going to have to get a car, decreasing that space between the different allocation of transportation expenses between metro and nonmetro areas.
+
+Another interestingly highlight that I spoke on before shortly is that consistently healthcare seems to be the only areas where on average families who live in nonmetro areas seem to allocate more of their total expense to it than families in metro areas.Knowing that this trend exists across the border in the United States at least at the regional level, bring attention to perhaps the finance and economical, and political disparities and differences between living in the two areas. 
+
+Thus through this exploration, I was able to gain insights into how cost of living differs across geographical, metro classification, and even state lines. With the most interesting insights for me pertaining to how family size impacts the allocation of expenses, while also revealing intriguing patterns in transportation and healthcare expenditures. The variations in income disparities across different regions and metro classifications shed light on the complex economic landscape, showcasing where families struggle and thrive financially. Further investigations into the outliers and clusters within states contribute would help to gain a deeper understanding of the nuanced factors influencing the cost of living. 
+
+### Budget Allocation
+
+Now I will move towards providing insights gained from answering my second question which related see if there are discernible patterns or trends in budget allocation that stand out, considering family types and minimum wage? 
+
+![Budget Heatmap Allocation](figures/multivariate/question2/question2_figure2.png){#fig-6}
+
+Looking at the national level of the separate family types, we see in @fig-25 that the largest expense for the families without children is transportation. Which is extremely interesting to me as I feel that people without children would have to worry less about having a car or other transportation expenses, but rather could stick to public transportation instead. Families of 1 parent and 1 child as well as families of 2 parents and 1 child also place the most percentage of their total expenses on transportation. This is because in relation to other family types, due to the smaller family size, there is less money being spent on childcare, food, housing, and other necessities, thus placing the majority on transportation. This explanation also supports why families with no children also have a majority of their expenses going to transportation as the cost of the other necessities become lesser in relation to larger families. Lastly within this figure, I would like to point out how for most of the other family types due to their larger size and growth in the amount of children, there is a raise in healthcare and childcare expenses. 
+
+I also conducted these budget allocations on the regional and metro classification levels as well, however the same results came to be for the most part, thus not providing any other insights those far. The only differences revolved around the cost of housing, which I have already addressed previously, as this relates to housing market demands.  I hope to further my analyses by looking these budget allocations at the individual states and county levels. 
+
 ## Conclusions 
+
+All in all, the exploration provided a blend of anticipated and unexpected insights, showcasing the intricate dynamics of budgeting in diverse regions. Due to surprising trends, particularly in transportation and healthcare, I hope to prompt further avenues of investigation in the future. With this future research focusing on looking at the state and county levels to possibly uncover more nuanced patterns and identify outliers that deviate from regional trends. Additionally, the exploration sets the stage for more detailed investigations into specific regions, allowing for a more granular understanding of economic dynamics and budget allocations. 
+
+Due to the extremely extensiveness of this dataset, in this exploration I was only able to scratch the every top of all of the different investigations and insights that could be drawn from it. For the future, I would love to look more deeply at all of these different avenues and curiosities that I formed.
+
+
+
+
+
 
 
