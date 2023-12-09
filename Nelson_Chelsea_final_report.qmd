@@ -35,8 +35,8 @@ library(DT)
 #| label: loading-data 
 
 fbc_data <- read_rds("data/fbc_data.rds")
-# fbc_data_codebook <- read_csv("data/fbc_data_codebook.csv")
-# still need to make the codebook
+fbc_data_codebook <- read_csv("data/fbc_data_codebook.csv")
+
 ```
 
 ## Introduction
