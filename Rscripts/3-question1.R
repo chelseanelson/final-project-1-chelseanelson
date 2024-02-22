@@ -1,6 +1,9 @@
 ## Loading Packages ----
 library(tidyverse)
 
+## Loading data ----
+fbc_data <- read_rds("data/fbc_data.rds")
+
 ## Question of Interest ----
 #How does the cost of living vary across different geographical facets and metro classifications? 
 

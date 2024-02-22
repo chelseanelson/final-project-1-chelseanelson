@@ -1,7 +1,10 @@
 # Functions ----
 
-### Loading Packages ----
+## Loading Packages ----
 library(tidyverse)
+
+## Loading data ----
+fbc_data <- read_rds("data/fbc_data.rds")
 
 # function for looking at distribution of the numerical variables based on
 # categorical variables 

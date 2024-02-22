@@ -3,13 +3,17 @@
 This directory contains R scripts for different stages of the data analysis process.
 
 
-1. **0-data_collection_manipulation.R:** Script for collecting and manipulating data.
-2. **1-univariate_analysis.R:** Script for conducting univariate analysis.
-3. **2-bivariate_analysis.R:** Script for performing bivariate analysis.
-4. **3-multivariate_analysis.R:** Script for preparing for my multivariate analysis.
-5. **4-question1.R:** Script related to answering my first exploration question.
-6. **5-question2.R:** Script related to answering my second exploration question.
-8. **6-codebook.R:** Script for generating or updating the codebook.
+`0-data_collection_manipulation.R` : Script for collecting and manipulating data.
+
+`1-univariate_analysis.R` : Script for conducting univariate analysis.
+
+`2-bivariate_analysis.R` : Script for performing bivariate analysis.
+
+`3-question1.R` : Script related to answering my first exploration question.
+
+`4-question2.R` : Script related to answering my second exploration question.
+
+`5-codebook.R` : Script for generating or updating the codebook.
 
 ## Usage
 
@@ -19,5 +23,5 @@ explorations as well.
 
 ## Acknowledgments
 
-I have already called any external libraries in `0-data_collection_manipulation` file if needed throughout looking through your exploration. As well as I have called for the main dataset in that file already to be used.
+I have already called any external libraries in at the beginning of each R file if needed throughout looking through your exploration. As well as I have called for the main dataset in each file already to be used.
 

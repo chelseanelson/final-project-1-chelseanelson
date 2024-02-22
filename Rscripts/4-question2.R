@@ -1,6 +1,9 @@
 ## Loading Packages ----
 library(tidyverse)
 
+## Loading data ----
+fbc_data <- read_rds("data/fbc_data.rds")
+
 ## Question of Interest ----
 # 2. Are there discernible patterns or trends in budget allocation that stand out, considering family types and monthly expenses? 
   
