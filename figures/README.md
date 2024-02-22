@@ -6,7 +6,7 @@
 
 `bivariate/` : Directory containing files of figures related to my bivariate analysis.
 
-`multivariate/` : Directory containing files of figures related to my multivariate analyses. Being separated into two subfiles, one for each question, `question1/` and  `question2/`. 
+`multivariate/` : Directory containing files of figures related to my multivariate analyses. Being separated into two subfiles, one for each question, `question1/` and `question2/`. 
 
 `tables/` : Directory to store tables or results generated during the analysis.
 
