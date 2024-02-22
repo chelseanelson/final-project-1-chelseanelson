@@ -1,5 +1,8 @@
 # Functions ----
 
+### Loading Packages ----
+library(tidyverse)
+
 # function for looking at distribution of the numerical variables based on
 # categorical variables 
 numerical_family_type <- function(numerical_var) {

@@ -1,3 +1,6 @@
+## Loading Packages ----
+library(tidyverse)
+
 ## Question of Interest ----
 #How does the cost of living vary across different geographical facets and metro classifications? 
 

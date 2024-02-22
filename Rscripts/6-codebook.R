@@ -1,5 +1,6 @@
 # original codebook:
-fbc_data_codebook_raw
+fbc_data_codebook_raw <- read_excel("data/raw/fbc_data_2022_raw.xlsx", 
+                                    sheet = "Codebook")
 
 # creating my own codebook: 
 fbc_data_codebook <- tibble(

@@ -1,5 +1,8 @@
 # Categorical Univariate Analysis ----
 
+## Loading Packages ----
+library(tidyverse)
+
 # looking at count of metro to nonmetro counties in total
 figure_1_univariate_metro <- fbc_data %>% ggplot(aes(metro)) + 
   geom_bar(color = "white", fill = "black") + 

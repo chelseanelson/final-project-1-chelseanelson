@@ -1,3 +1,6 @@
+## Loading Packages ----
+library(tidyverse)
+
 ## Question of Interest ----
 # 2. Are there discernible patterns or trends in budget allocation that stand out, considering family types and monthly expenses? 
   
